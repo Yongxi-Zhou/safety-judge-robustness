@@ -1,0 +1,46 @@
+project_name: safety_judge_robustness
+
+# --- fixed response set (the data the judges score) ---
+response_set: Experiment/datasets/response_set.jsonl
+raw_sources:
+  # drop public jailbreak completions here; see docs/dataset_and_metrics_plan.md
+  - Experiment/datasets/raw/jailbreakbench_completions.jsonl
+  - Experiment/datasets/raw/harmbench_completions.jsonl
+target_n_responses: 600          # ~300 unsafe-compliance + ~300 refusal
+target_models: 5                 # for the ranking-reversal analysis
+
+# --- content-invariant wrappers ---
+wrappers:
+  false_negative:                # applied to unsafe-compliance responses
+    - disclaimer_prefix
+    - ethical_reflection
+    - fake_cot
+    - educational_framing
+    - refusal_then_comply
+    - moralizing_suffix
+  false_positive:                # applied to refusal responses
+    - lecture_suffix
+    - harm_adjacent_preamble
+    - pseudo_comply_frame
+
+# --- judge panel (instrument under test) ---
+judges:
+  - rulebased        # offline default
+  - gpt4o
+  - strongreject
+  - llamaguard
+  - shieldgemma
+  - wildguard
+
+# --- protocol ---
+generation:
+  judge_temperature: 0.0
+  repeats_for_noise_floor: 5     # re-score original form to measure judge stochasticity
+stats:
+  bootstrap_resamples: 5000
+  correction: [holm, benjamini_hochberg]
+  alpha: 0.05
+human_validation:
+  n: 150                         # stratified by (wrapper_family, gold_label)
+output_dir: Experiment/outputs
+analysis_dir: Experiment/analysis

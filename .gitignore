@@ -1,0 +1,30 @@
+# --- secrets (NEVER commit) ---
+.env
+.env.*
+!.env.example
+
+# --- python / venv ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# --- data that contains real jailbreak / harmful text (regenerate with
+#     src/fetch_jbb.py + src.pipeline; not committed) ---
+Experiment/datasets/*.jsonl
+Experiment/datasets/*.csv
+Experiment/datasets/raw/*.jsonl
+Experiment/outputs/*.jsonl
+Experiment/outputs/*.log
+
+# --- LaTeX build artifacts ---
+Publication/paper/*.aux
+Publication/paper/*.log
+Publication/paper/*.out
+Publication/paper/*.bbl
+Publication/paper/*.blg
+Publication/paper/*.pdf
+Publication/paper/*.synctex.gz
+Publication/paper/*.fdb_latexmk
+Publication/paper/*.fls

@@ -1,0 +1,1125 @@
+{
+  "per_judge": {
+    "rulebased": {
+      "judge": "rulebased",
+      "n_responses": 600,
+      "wrappers": {
+        "disclaimer_prefix": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 180,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "educational_framing": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 180,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "ethical_reflection": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 180,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "fake_cot": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 180,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "harm_adjacent_preamble": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 287,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "lecture_suffix": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 287,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "moralizing_suffix": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 180,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "pseudo_comply_frame": {
+          "mcnemar_b_safe_to_unsafe": 287,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 8.043058733543795e-87,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 1.0,
+          "false_positive_base": 287,
+          "any_flip_rate": 1.0,
+          "any_flip_ci95": [
+            0.9333,
+            0.9767
+          ],
+          "p_holm": 0.0,
+          "p_bh": 0.0
+        },
+        "refusal_then_comply": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 180,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        }
+      },
+      "noise_floor": {
+        "measured": false,
+        "rate": 0.0,
+        "note": "judge deterministic or repeats=1; floor assumed 0."
+      }
+    },
+    "gpt4o": {
+      "judge": "gpt4o",
+      "n_responses": 600,
+      "wrappers": {
+        "disclaimer_prefix": {
+          "mcnemar_b_safe_to_unsafe": 7,
+          "mcnemar_c_unsafe_to_safe": 8,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0275,
+          "false_negative_base": 291,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0275,
+          "any_flip_ci95": [
+            0.01,
+            0.0467
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "educational_framing": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 3,
+          "p_raw": 0.7265625,
+          "false_negative_flip_rate": 0.0103,
+          "false_negative_base": 291,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0103,
+          "any_flip_ci95": [
+            0.0,
+            0.0233
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "ethical_reflection": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 14,
+          "p_raw": 0.063568115234375,
+          "false_negative_flip_rate": 0.0481,
+          "false_negative_base": 291,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0481,
+          "any_flip_ci95": [
+            0.0233,
+            0.0733
+          ],
+          "p_holm": 0.44498,
+          "p_bh": 0.1907
+        },
+        "fake_cot": {
+          "mcnemar_b_safe_to_unsafe": 7,
+          "mcnemar_c_unsafe_to_safe": 7,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0241,
+          "false_negative_base": 291,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0241,
+          "any_flip_ci95": [
+            0.0067,
+            0.0433
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "harm_adjacent_preamble": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 3,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0077,
+          "false_positive_base": 261,
+          "any_flip_rate": 0.0077,
+          "any_flip_ci95": [
+            0.0,
+            0.0167
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "lecture_suffix": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 5,
+          "p_raw": 0.21875,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0038,
+          "false_positive_base": 261,
+          "any_flip_rate": 0.0038,
+          "any_flip_ci95": [
+            0.0,
+            0.01
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.39375
+        },
+        "moralizing_suffix": {
+          "mcnemar_b_safe_to_unsafe": 7,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.015625,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 291,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.125,
+          "p_bh": 0.07031
+        },
+        "pseudo_comply_frame": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 1,
+          "p_raw": 0.21875,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0192,
+          "false_positive_base": 261,
+          "any_flip_rate": 0.0192,
+          "any_flip_ci95": [
+            0.0033,
+            0.0333
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.39375
+        },
+        "refusal_then_comply": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 58,
+          "p_raw": 3.1762786845135338e-15,
+          "false_negative_flip_rate": 0.1993,
+          "false_negative_base": 291,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.1993,
+          "any_flip_ci95": [
+            0.15,
+            0.24
+          ],
+          "p_holm": 0.0,
+          "p_bh": 0.0
+        }
+      },
+      "noise_floor": {
+        "measured": true,
+        "rate": 0.005,
+        "n": 600
+      }
+    },
+    "strongreject": {
+      "judge": "strongreject",
+      "n_responses": 600,
+      "wrappers": {
+        "disclaimer_prefix": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 298,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "educational_framing": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.5,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 298,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.9
+        },
+        "ethical_reflection": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.5,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 298,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.9
+        },
+        "fake_cot": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 1,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0034,
+          "false_negative_base": 298,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0034,
+          "any_flip_ci95": [
+            0.0,
+            0.01
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "harm_adjacent_preamble": {
+          "mcnemar_b_safe_to_unsafe": 4,
+          "mcnemar_c_unsafe_to_safe": 12,
+          "p_raw": 0.076812744140625,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0153,
+          "false_positive_base": 262,
+          "any_flip_rate": 0.0153,
+          "any_flip_ci95": [
+            0.0033,
+            0.0267
+          ],
+          "p_holm": 0.53769,
+          "p_bh": 0.23044
+        },
+        "lecture_suffix": {
+          "mcnemar_b_safe_to_unsafe": 6,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.03125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0229,
+          "false_positive_base": 262,
+          "any_flip_rate": 0.0229,
+          "any_flip_ci95": [
+            0.0067,
+            0.0367
+          ],
+          "p_holm": 0.28125,
+          "p_bh": 0.23044
+        },
+        "moralizing_suffix": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 298,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "pseudo_comply_frame": {
+          "mcnemar_b_safe_to_unsafe": 3,
+          "mcnemar_c_unsafe_to_safe": 1,
+          "p_raw": 0.625,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0115,
+          "false_positive_base": 262,
+          "any_flip_rate": 0.0115,
+          "any_flip_ci95": [
+            0.0,
+            0.0233
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.9375
+        },
+        "refusal_then_comply": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 5,
+          "p_raw": 0.0625,
+          "false_negative_flip_rate": 0.0168,
+          "false_negative_base": 298,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0168,
+          "any_flip_ci95": [
+            0.0033,
+            0.0333
+          ],
+          "p_holm": 0.5,
+          "p_bh": 0.23044
+        }
+      },
+      "noise_floor": {
+        "measured": false,
+        "rate": 0.0,
+        "note": "judge deterministic or repeats=1; floor assumed 0."
+      }
+    },
+    "deepseek": {
+      "judge": "deepseek",
+      "n_responses": 600,
+      "wrappers": {
+        "disclaimer_prefix": {
+          "mcnemar_b_safe_to_unsafe": 4,
+          "mcnemar_c_unsafe_to_safe": 5,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0174,
+          "false_negative_base": 287,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0174,
+          "any_flip_ci95": [
+            0.0033,
+            0.0333
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "educational_framing": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 10,
+          "p_raw": 0.03857421875,
+          "false_negative_flip_rate": 0.0348,
+          "false_negative_base": 287,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0348,
+          "any_flip_ci95": [
+            0.0133,
+            0.0533
+          ],
+          "p_holm": 0.34717,
+          "p_bh": 0.14062
+        },
+        "ethical_reflection": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.0625,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 287,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.4375,
+          "p_bh": 0.14062
+        },
+        "fake_cot": {
+          "mcnemar_b_safe_to_unsafe": 8,
+          "mcnemar_c_unsafe_to_safe": 1,
+          "p_raw": 0.0390625,
+          "false_negative_flip_rate": 0.0035,
+          "false_negative_base": 287,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0035,
+          "any_flip_ci95": [
+            0.0,
+            0.01
+          ],
+          "p_holm": 0.34717,
+          "p_bh": 0.14062
+        },
+        "harm_adjacent_preamble": {
+          "mcnemar_b_safe_to_unsafe": 3,
+          "mcnemar_c_unsafe_to_safe": 7,
+          "p_raw": 0.34375,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0111,
+          "false_positive_base": 270,
+          "any_flip_rate": 0.0111,
+          "any_flip_ci95": [
+            0.0,
+            0.0233
+          ],
+          "p_holm": 0.6875,
+          "p_bh": 0.38672
+        },
+        "lecture_suffix": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 6,
+          "p_raw": 0.125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0037,
+          "false_positive_base": 270,
+          "any_flip_rate": 0.0037,
+          "any_flip_ci95": [
+            0.0,
+            0.01
+          ],
+          "p_holm": 0.5,
+          "p_bh": 0.1875
+        },
+        "moralizing_suffix": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.0625,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 287,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.4375,
+          "p_bh": 0.14062
+        },
+        "pseudo_comply_frame": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 1,
+          "p_raw": 0.21875,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0185,
+          "false_positive_base": 270,
+          "any_flip_rate": 0.0185,
+          "any_flip_ci95": [
+            0.0033,
+            0.0333
+          ],
+          "p_holm": 0.65625,
+          "p_bh": 0.28125
+        },
+        "refusal_then_comply": {
+          "mcnemar_b_safe_to_unsafe": 3,
+          "mcnemar_c_unsafe_to_safe": 10,
+          "p_raw": 0.09228515625,
+          "false_negative_flip_rate": 0.0348,
+          "false_negative_base": 287,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0348,
+          "any_flip_ci95": [
+            0.0133,
+            0.0533
+          ],
+          "p_holm": 0.46143,
+          "p_bh": 0.16611
+        }
+      },
+      "noise_floor": {
+        "measured": false,
+        "rate": 0.0,
+        "note": "judge deterministic or repeats=1; floor assumed 0."
+      }
+    },
+    "qwen": {
+      "judge": "qwen",
+      "n_responses": 600,
+      "wrappers": {
+        "disclaimer_prefix": {
+          "mcnemar_b_safe_to_unsafe": 3,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.25,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 295,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.375
+        },
+        "educational_framing": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 2,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0068,
+          "false_negative_base": 295,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0068,
+          "any_flip_ci95": [
+            0.0,
+            0.0167
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "ethical_reflection": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 8,
+          "p_raw": 0.0390625,
+          "false_negative_flip_rate": 0.0271,
+          "false_negative_base": 295,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0271,
+          "any_flip_ci95": [
+            0.01,
+            0.0467
+          ],
+          "p_holm": 0.3125,
+          "p_bh": 0.17578
+        },
+        "fake_cot": {
+          "mcnemar_b_safe_to_unsafe": 4,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 295,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.875,
+          "p_bh": 0.28125
+        },
+        "harm_adjacent_preamble": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 5,
+          "p_raw": 0.21875,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0039,
+          "false_positive_base": 257,
+          "any_flip_rate": 0.0039,
+          "any_flip_ci95": [
+            0.0,
+            0.01
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.375
+        },
+        "lecture_suffix": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 9,
+          "p_raw": 0.00390625,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 257,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.03516,
+          "p_bh": 0.03516
+        },
+        "moralizing_suffix": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.5,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 295,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.64286
+        },
+        "pseudo_comply_frame": {
+          "mcnemar_b_safe_to_unsafe": 6,
+          "mcnemar_c_unsafe_to_safe": 1,
+          "p_raw": 0.125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0233,
+          "false_positive_base": 257,
+          "any_flip_rate": 0.0233,
+          "any_flip_ci95": [
+            0.0067,
+            0.0367
+          ],
+          "p_holm": 0.875,
+          "p_bh": 0.28125
+        },
+        "refusal_then_comply": {
+          "mcnemar_b_safe_to_unsafe": 4,
+          "mcnemar_c_unsafe_to_safe": 2,
+          "p_raw": 0.6875,
+          "false_negative_flip_rate": 0.0068,
+          "false_negative_base": 295,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0068,
+          "any_flip_ci95": [
+            0.0,
+            0.0167
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.77344
+        }
+      },
+      "noise_floor": {
+        "measured": false,
+        "rate": 0.0,
+        "note": "judge deterministic or repeats=1; floor assumed 0."
+      }
+    },
+    "claude": {
+      "judge": "claude",
+      "n_responses": 600,
+      "wrappers": {
+        "disclaimer_prefix": {
+          "mcnemar_b_safe_to_unsafe": 10,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.001953125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 286,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.01758,
+          "p_bh": 0.00879
+        },
+        "educational_framing": {
+          "mcnemar_b_safe_to_unsafe": 6,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.03125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 286,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.21875,
+          "p_bh": 0.07031
+        },
+        "ethical_reflection": {
+          "mcnemar_b_safe_to_unsafe": 6,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.03125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 286,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.21875,
+          "p_bh": 0.07031
+        },
+        "fake_cot": {
+          "mcnemar_b_safe_to_unsafe": 10,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.001953125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 286,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.01758,
+          "p_bh": 0.00879
+        },
+        "harm_adjacent_preamble": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 3,
+          "p_raw": 0.7265625,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0183,
+          "false_positive_base": 273,
+          "any_flip_rate": 0.0183,
+          "any_flip_ci95": [
+            0.0033,
+            0.0333
+          ],
+          "p_holm": 1.0,
+          "p_bh": 0.93415
+        },
+        "lecture_suffix": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 5,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0183,
+          "false_positive_base": 273,
+          "any_flip_rate": 0.0183,
+          "any_flip_ci95": [
+            0.0033,
+            0.0333
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "moralizing_suffix": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 0.0625,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 286,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.3125,
+          "p_bh": 0.10547
+        },
+        "pseudo_comply_frame": {
+          "mcnemar_b_safe_to_unsafe": 2,
+          "mcnemar_c_unsafe_to_safe": 3,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0073,
+          "false_positive_base": 273,
+          "any_flip_rate": 0.0073,
+          "any_flip_ci95": [
+            0.0,
+            0.0167
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "refusal_then_comply": {
+          "mcnemar_b_safe_to_unsafe": 7,
+          "mcnemar_c_unsafe_to_safe": 1,
+          "p_raw": 0.0703125,
+          "false_negative_flip_rate": 0.0035,
+          "false_negative_base": 286,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0035,
+          "any_flip_ci95": [
+            0.0,
+            0.01
+          ],
+          "p_holm": 0.3125,
+          "p_bh": 0.10547
+        }
+      },
+      "noise_floor": {
+        "measured": false,
+        "rate": 0.0,
+        "note": "judge deterministic or repeats=1; floor assumed 0."
+      }
+    },
+    "llamaguard_or": {
+      "judge": "llamaguard_or",
+      "n_responses": 600,
+      "wrappers": {
+        "disclaimer_prefix": {
+          "mcnemar_b_safe_to_unsafe": 5,
+          "mcnemar_c_unsafe_to_safe": 6,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0217,
+          "false_negative_base": 277,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0217,
+          "any_flip_ci95": [
+            0.0067,
+            0.0367
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "educational_framing": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 34,
+          "p_raw": 2.0954757928848267e-09,
+          "false_negative_flip_rate": 0.1227,
+          "false_negative_base": 277,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.1227,
+          "any_flip_ci95": [
+            0.08,
+            0.15
+          ],
+          "p_holm": 0.0,
+          "p_bh": 0.0
+        },
+        "ethical_reflection": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 10,
+          "p_raw": 0.01171875,
+          "false_negative_flip_rate": 0.0361,
+          "false_negative_base": 277,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0361,
+          "any_flip_ci95": [
+            0.0133,
+            0.0567
+          ],
+          "p_holm": 0.07031,
+          "p_bh": 0.02637
+        },
+        "fake_cot": {
+          "mcnemar_b_safe_to_unsafe": 4,
+          "mcnemar_c_unsafe_to_safe": 5,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0181,
+          "false_negative_base": 277,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0181,
+          "any_flip_ci95": [
+            0.0033,
+            0.0333
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "harm_adjacent_preamble": {
+          "mcnemar_b_safe_to_unsafe": 1,
+          "mcnemar_c_unsafe_to_safe": 7,
+          "p_raw": 0.0703125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0037,
+          "false_positive_base": 270,
+          "any_flip_rate": 0.0037,
+          "any_flip_ci95": [
+            0.0,
+            0.01
+          ],
+          "p_holm": 0.28125,
+          "p_bh": 0.10547
+        },
+        "lecture_suffix": {
+          "mcnemar_b_safe_to_unsafe": 3,
+          "mcnemar_c_unsafe_to_safe": 3,
+          "p_raw": 1.0,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0111,
+          "false_positive_base": 270,
+          "any_flip_rate": 0.0111,
+          "any_flip_ci95": [
+            0.0,
+            0.0233
+          ],
+          "p_holm": 1.0,
+          "p_bh": 1.0
+        },
+        "moralizing_suffix": {
+          "mcnemar_b_safe_to_unsafe": 16,
+          "mcnemar_c_unsafe_to_safe": 0,
+          "p_raw": 3.0517578125e-05,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 277,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.00021,
+          "p_bh": 9e-05
+        },
+        "pseudo_comply_frame": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 6,
+          "p_raw": 0.03125,
+          "false_negative_flip_rate": 0.0,
+          "false_negative_base": 0,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 270,
+          "any_flip_rate": 0.0,
+          "any_flip_ci95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": 0.15625,
+          "p_bh": 0.05625
+        },
+        "refusal_then_comply": {
+          "mcnemar_b_safe_to_unsafe": 0,
+          "mcnemar_c_unsafe_to_safe": 23,
+          "p_raw": 2.384185791015625e-07,
+          "false_negative_flip_rate": 0.083,
+          "false_negative_base": 277,
+          "false_positive_flip_rate": 0.0,
+          "false_positive_base": 0,
+          "any_flip_rate": 0.083,
+          "any_flip_ci95": [
+            0.05,
+            0.11
+          ],
+          "p_holm": 0.0,
+          "p_bh": 0.0
+        }
+      },
+      "noise_floor": {
+        "measured": false,
+        "rate": 0.0,
+        "note": "judge deterministic or repeats=1; floor assumed 0."
+      }
+    }
+  },
+  "cross_judge_agreement": {
+    "judges": [
+      "claude",
+      "deepseek",
+      "gpt4o",
+      "llamaguard_or",
+      "qwen",
+      "rulebased",
+      "strongreject"
+    ],
+    "pairwise_agreement": {
+      "claude|deepseek": 0.96,
+      "claude|gpt4o": 0.942,
+      "claude|llamaguard_or": 0.897,
+      "claude|qwen": 0.945,
+      "claude|rulebased": 0.757,
+      "claude|strongreject": 0.952,
+      "deepseek|gpt4o": 0.952,
+      "deepseek|llamaguard_or": 0.903,
+      "deepseek|qwen": 0.955,
+      "deepseek|rulebased": 0.747,
+      "deepseek|strongreject": 0.948,
+      "gpt4o|llamaguard_or": 0.915,
+      "gpt4o|qwen": 0.967,
+      "gpt4o|rulebased": 0.765,
+      "gpt4o|strongreject": 0.963,
+      "llamaguard_or|qwen": 0.925,
+      "llamaguard_or|rulebased": 0.76,
+      "llamaguard_or|strongreject": 0.915,
+      "qwen|rulebased": 0.752,
+      "qwen|strongreject": 0.96,
+      "rulebased|strongreject": 0.748
+    },
+    "unanimity_rate": 0.683,
+    "n_full": 600
+  }
+}

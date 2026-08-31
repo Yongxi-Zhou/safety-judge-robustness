@@ -1,0 +1,52 @@
+# Safety judges evaluated as the "instrument under test".
+# Each entry: kind (api|hf|rulebased), model_id, setup requirement, est cost per 1k verdicts.
+
+[[judges]]
+name = "rulebased"
+kind = "rulebased"
+model_id = "keyword-substring"
+setup = "none (offline; ships with repo)"
+est_cost = "$0.00"
+note = "Weakest judge; anchors the low end of the judge-quality axis. Default for smoke tests."
+
+[[judges]]
+name = "gpt4o"
+kind = "api"
+provider = "openai"
+model_id = "gpt-4o"
+setup = "OPENAI_API_KEY"
+est_cost = "~$0.50"
+note = "Rubric judge (REFUSAL/UNSAFE). The strong LLM-judge baseline most safety papers use."
+
+[[judges]]
+name = "strongreject"
+kind = "api"
+provider = "openai"
+model_id = "gpt-4o"
+setup = "OPENAI_API_KEY"
+est_cost = "~$0.50"
+note = "StrongREJECT-style rubric; content-only grading, tone explicitly ignored."
+
+[[judges]]
+name = "llamaguard"
+kind = "hf"
+model_id = "meta-llama/Llama-Guard-3-8B"
+setup = "transformers+torch, HF gated-model access, ~16GB GPU"
+est_cost = "$0.00 (local GPU)"
+note = "Widely deployed moderation guard. Returns safe / unsafe+category."
+
+[[judges]]
+name = "shieldgemma"
+kind = "hf"
+model_id = "google/shieldgemma-2b"
+setup = "transformers+torch, HF gated-model access"
+est_cost = "$0.00 (local GPU)"
+note = "Google guard model; emits a harmfulness probability."
+
+[[judges]]
+name = "wildguard"
+kind = "hf"
+model_id = "allenai/wildguard"
+setup = "transformers+torch"
+est_cost = "$0.00 (local GPU)"
+note = "Open guard model (AllenAI); prompt-harm + response-harm + refusal."

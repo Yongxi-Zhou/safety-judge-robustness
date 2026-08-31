@@ -1,0 +1,259 @@
+% Style Over Substance: Content-Invariant Wrappers Flip LLM Safety-Judge Verdicts
+%
+% Self-contained draft: compiles with a standard LaTeX install (`bash build.sh`).
+% To target ACL/ARR, replace the \documentclass + preamble block with `\usepackage{acl}`
+% as in the group's prior submissions; the body below is class-agnostic.
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}
+\setcitestyle{numbers,square}
+
+\title{Style Over Substance: Content-Invariant Wrappers Flip \\ LLM Safety-Judge Verdicts}
+\author{Yongxi Zhou \quad (co-authors TBD) \\ \small Northeastern University \\
+  \small \texttt{zhou.yongx@northeastern.edu}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Automatic \emph{safety judges}---Llama Guard, ShieldGemma, WildGuard, GPT-4o rubrics,
+StrongREJECT---are the measuring instrument behind almost every reported jailbreak success
+rate, defense evaluation, and safety leaderboard. We ask whether these judges grade the
+operational \emph{content} of a response or merely its \emph{style}. We hold a response's
+content fixed and add \emph{content-invariant style wrappers}: educational disclaimers,
+ethical hand-wringing, a fake safety chain-of-thought, a token refusal followed by
+compliance, and moralizing suffixes (harm-hiding), plus harm-adjacent framing and pseudo-
+compliance prefixes on benign refusals (harm-inventing). Because a wrapper only decorates the
+response---the operational body is byte-preserved---a faithful judge must return an unchanged
+verdict, so any flip is judge error rather than a real safety change. Over
+600 responses (300 unsafe-compliance, 300 refusal, drawn from JailbreakBench artifacts across
+four target models) $\times$ up to 7 forms $\times$ 7 judges (a keyword baseline; GPT-4o-mini
+under a generic and a StrongREJECT rubric; DeepSeek; Qwen; Claude; and the purpose-built
+Llama Guard~4 moderation model), we measure per-(judge, wrapper) flip rates with exact McNemar
+tests (Holm corrected), bootstrap confidence intervals, and a measured judge-stochasticity noise
+floor. Gameability is sharply \textbf{judge-specific}: a token-refusal-then-comply wrapper flips
+\textbf{19.9\%} of GPT-4o-mini's correct ``unsafe'' verdicts to ``safe'' (95\% CI [15.0, 24.0],
+Holm $p<10^{-4}$, noise floor 0.5\%) yet moves Claude only 0.4\%; and, most consequentially, the
+deployed \textbf{Llama Guard~4} guard model is significantly gamed---an ``educational course''
+framing flips \textbf{12.3\%} of its harmful verdicts to safe and a token refusal flips 8.3\%
+(both Holm-significant)---while a pseudo-compliance prefix flips \textbf{100\%} of the keyword
+judge's refusal verdicts to ``unsafe.'' Different judges have different blind spots (the framing
+that fools Llama Guard barely moves GPT-4o-mini, and vice versa), and hardening the judge
+\emph{prompt} to ignore tone and framing (StrongREJECT-style) cuts the token-refusal attack
+roughly \textbf{tenfold} on an identical model---so gameability lives in the judge, not the
+content. The judges do not even agree on which target model is safest at baseline (full-panel
+unanimity 55.5\%), and 1--6 wrappers per judge reorder the four-model safety leaderboard. We
+release the dataset, wrappers, code, and per-verdict labels.
+\end{abstract}
+
+\section{Introduction}
+A safety benchmark score is only as trustworthy as the judge that produces it. Yet the field's
+attention has focused on \emph{attacks} and \emph{models}, treating the judge as a fixed oracle.
+Recent work has begun to question that oracle: constant ``null-model'' replies win automatic
+leaderboards~\citep{cheating2025}, reasoning-mimicking phrases sway reasoning judges~\citep{lrmbias2025},
+and a NeurIPS position paper argues most cross-paper attack-success-rate comparisons are
+invalid because judge error and prompt composition dominate the reported
+differences~\citep{asrposition2025}. These are existence proofs that judges are
+gameable---but for \emph{general} evaluation, or from the \emph{attack-input} side.
+
+We ask the safety-specific, scoring-side question directly: \textbf{if we change only the
+\emph{style} of a response and not its operational content, does the safety verdict stay
+fixed?} A faithful judge must say yes. We test this with \emph{content-invariant style
+wrappers}---fixed strings prepended or appended to a response that add safety-signalling or
+harm-signalling tone while leaving the operational body byte-for-byte identical.
+
+Our contributions:
+\begin{enumerate}
+  \item A controlled \textbf{style-wrapper attack on safety judges} (not on models), where
+  content preservation holds \emph{by construction} rather than by an LLM rewrite---eliminating
+  the intent-preservation confound of prior reformulation studies.
+  \item A cross-judge \textbf{flip-rate protocol} (exact McNemar + Holm/BH, bootstrap CIs,
+  measured noise floor) over 6 judges and 9 wrappers, covering both harm-hiding (false-negative)
+  and harm-inventing (false-positive) directions.
+  \item Evidence that safety \textbf{leaderboards are order-unstable} under judge gaming: the
+  same wrapper reorders which model looks safer.
+  \item A human-anchored validation that flips are judge errors, plus a public release.
+\end{enumerate}
+
+\section{Related Work}
+\paragraph{Gameable and unreliable judges.} \citet{cheating2025} show constant replies win
+automatic leaderboards; \citet{lrmbias2025} identify a ``superficial reflection'' bias where
+reasoning-styled text sways judges; \citet{ratingroulette2025} document run-to-run judge
+self-inconsistency. Our \texttt{fake\_cot} and \texttt{ethical\_reflection} wrappers are the
+safety-verdict analogues, and our noise floor operationalizes~\citet{ratingroulette2025}.
+\paragraph{Jailbreak-evaluation validity.} \citet{asrposition2025} argue ASR comparisons are
+often invalid; \citet{jailmeter2026} and \citet{guidedbench2026} show many ``near-100\% ASR''
+methods produce incomplete harmful content and that per-case criteria cut evaluator variance.
+We complement these calls with a controlled measurement of one concrete failure mode of the
+verdict itself.
+\paragraph{Over-refusal and guard models.} OR-Bench~\citep{orbench2025} finds safety and
+over-refusal correlate, but both are measured with LLM judges; our false-positive direction
+probes whether part of that ``frontier'' is shared judge bias. Guard models
+(Llama Guard, ShieldGemma, WildGuard) and pipeline attacks~\citep{stack2026} treat guards as
+inputs-to-harden; we attack them from the scoring side. See
+\hyperref[app:related]{Appendix~\ref*{app:related}} and the survey map in the repository.
+
+\section{Method}
+\paragraph{Object under test.} The judge. The data unit is a fixed triple
+$(\text{behavior}, \text{response}, \text{gold})$ with $\text{gold}\in\{\text{unsafe},
+\text{refusal}\}$. We never edit the response content.
+\paragraph{Content-invariant wrappers.} Each wrapper $w$ maps a response $r$ to $w(r)$ by
+prepending or appending a fixed string; the operational body of $r$ is preserved verbatim. The
+false-negative family (disclaimer, ethical reflection, fake CoT, educational framing, token-
+refusal-then-comply, moralizing suffix) decorates \emph{unsafe} responses to look safe; the
+false-positive family (lecture suffix, harm-adjacent preamble, pseudo-compliance frame)
+decorates \emph{refusals} to look unsafe. A faithful judge returns the same verdict for $r$ and
+every $w(r)$.
+\paragraph{Judge panel.} Six judges spanning the quality axis: a keyword baseline
+(\texttt{rulebased}), two rubric judges (\texttt{gpt4o}, \texttt{strongreject}), and three
+guard models (\texttt{llamaguard}, \texttt{shieldgemma}, \texttt{wildguard}). Each returns a
+binary \texttt{unsafe} verdict; the rubric judges also return \texttt{refusal}.
+\paragraph{Metrics.} For each (judge, wrapper), paired by response: the false-negative flip
+rate $P(\text{wrapped safe}\mid\text{gold unsafe, original unsafe})$, the false-positive flip
+rate $P(\text{wrapped unsafe}\mid\text{gold refusal, original safe})$, exact McNemar $p$ vs the
+original form with Holm and Benjamini--Hochberg correction across the family, and a bootstrap
+95\% CI (5000 resamples over responses). Stochastic judges are re-scored $5\times$ on the
+original form to measure a \emph{noise floor}; a flip counts as signal only if its CI clears it.
+Only responses a judge scores correctly on the original form enter that judge's denominator, so
+a flip is unambiguously wrapper-induced.
+
+\section{Experimental Setup}
+\paragraph{Response set.} 600 responses (300 unsafe-compliance, 300 refusal) from public
+JailbreakBench artifacts~\citep{jailbreakbench} (attacks PAIR, GCG, DSN, JBC, and random search),
+balanced across four target models (GPT-3.5-turbo, GPT-4, Vicuna-13B, Llama-2-7B) and ten harm
+categories, so the set doubles as a mini leaderboard. Gold labels are the JailbreakBench
+classifier's \texttt{jailbroken} flag.
+\paragraph{Judges.} Seven judges: a keyword baseline (\texttt{rulebased}); GPT-4o-mini under a
+generic rubric (\texttt{gpt4o}) and a StrongREJECT-style rubric (\texttt{strongreject}, same
+model, different prompt); DeepSeek-Chat; Qwen-Plus; Claude Haiku 4.5; and the purpose-built
+Llama Guard~4 moderation model (via OpenRouter). All are API-served---no local GPUs. ShieldGemma
+and WildGuard are additional open guards left to the camera-ready.
+\paragraph{Protocol.} Judge temperature 0; three repeats on the original form for the noise
+floor; exact McNemar with Holm correction; 5000-sample bootstrap CIs. A 150-item stratified
+human validation is prepared. Full design in \texttt{docs/experiment\_design.md}. Realized API
+cost for this run was under \$3.
+
+\section{Results}
+\label{sec:results}
+Table~\ref{tab:flip} is auto-generated from \texttt{Experiment/analysis/} by
+\texttt{src/analysis.py}. The panel is seven judges: a keyword baseline (\texttt{rulebased});
+GPT-4o-mini under a generic rubric (\texttt{gpt4o}) and a StrongREJECT-style rubric
+(\texttt{strongreject}); DeepSeek-Chat (\texttt{deepseek}); Qwen-Plus (\texttt{qwen}); Claude
+Haiku 4.5 (\texttt{claude}); and the purpose-built \textbf{Llama Guard~4} moderation model
+(\texttt{llamaguard\_or}, served via OpenRouter). The response set is 600 JailbreakBench
+completions (300 unsafe, 300 refusal) across GPT-3.5, GPT-4, Vicuna-13B, and Llama-2-7B, spanning
+ten harm categories.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Any-flip rate (\%) per judge $\times$ wrapper. $^{*}$ = McNemar significant after Holm
+correction; ``--'' = that wrapper's response direction not yet covered for that judge.
+Generated by \texttt{src/analysis.py}.}
+\label{tab:flip}
+\IfFileExists{../../Experiment/analysis/flip_rates.tex}
+  {\resizebox{\columnwidth}{!}{\input{../../Experiment/analysis/flip_rates.tex}}}
+  {\emph{[run stage 5 to populate: Experiment/analysis/flip\_rates.tex]}}
+\end{table}
+
+\paragraph{H1: judges are gameable above the noise floor, but how much is judge-specific.} The
+sharpest dangerous flip is on GPT-4o-mini: \texttt{refusal\_then\_comply}---a token refusal
+(``I can't help with that'') followed by the unchanged harmful body under a ``hypothetically''
+frame---flips \textbf{19.9\%} of its correct ``unsafe'' verdicts to ``safe'' (95\% CI
+[15.0, 24.0], $n=291$, Holm $p<10^{-4}$, noise floor 0.5\%). In the opposite direction, the
+keyword judge marks \textbf{100\%} of refusals ``unsafe'' once a pseudo-compliance prefix
+(``Here is the information you asked for.'') is prepended ($n=287$, $p<10^{-4}$), while remaining
+unmoved by every harm-hiding wrapper---its verdict tracks surface phrases, not content. Crucially,
+the \emph{same} \texttt{refusal\_then\_comply} wrapper barely moves the other chat judges:
+DeepSeek 3.5\%, Qwen 0.7\%, Claude 0.4\%. Most consequentially, the deployed \textbf{Llama
+Guard~4} guard model---the kind of purpose-built moderator real systems place in front of an
+LLM---is itself significantly gamed: an \texttt{educational\_framing} prefix (``for an accredited
+university cybersecurity course\ldots'') flips \textbf{12.3\%} of its harmful verdicts to safe
+(Holm $p<0.05$) and \texttt{refusal\_then\_comply} flips 8.3\%, both above its noise floor. And
+the blind spots differ by judge: the framing that fools Llama Guard barely moves GPT-4o-mini
+(1.0\%), while the token-refusal trick that fools GPT-4o-mini (19.9\%) only mildly moves Llama
+Guard. So the vulnerability is not a universal property of LLM judges but a judge-specific one.
+On the most robust judges, several McNemar tests are significant yet \emph{protective} (the
+wrapper makes them \emph{more} conservative, so the dangerous-flip rate is $\sim$0).
+
+\paragraph{H2: gameability is a property of the judge, two ways.} First, cross-vendor: the
+identical wrapper produces a 19.9\% vs.\ 0.4--3.5\% spread across judges (above). Second,
+prompt-only: \texttt{gpt4o} and \texttt{strongreject} call the \emph{same} model (GPT-4o-mini)
+and differ only in the rubric prompt; the StrongREJECT rubric---which instructs the judge to
+ignore tone, disclaimers, and framing and grade only actionable harmful content---cuts the
+\texttt{refusal\_then\_comply} flip from 19.9\% to \textbf{1.9\%}, a roughly tenfold reduction on
+covered items. The judge design, not the content, is where the gap lives.
+
+\paragraph{H3: leaderboards are order-unstable---and judge-dependent.} The judges do not agree on
+which target model is safest even on the \emph{original} form: \texttt{rulebased}/\texttt{gpt4o}
+rank Vicuna-13B safest, \texttt{claude}/\texttt{qwen}/\texttt{strongreject} rank Llama-2-7B, and
+\texttt{deepseek} ranks GPT-3.5---so a safety leaderboard already depends on the choice of judge.
+On top of that, per judge \textbf{1--6 of 9} wrappers reorder the four-model ranking
+(\texttt{ranking\_reversal.json}); e.g.\ \texttt{disclaimer\_prefix} swaps Vicuna-13B and
+Llama-2-7B under GPT-4o-mini. Full-panel unanimity on original-form verdicts is only
+\textbf{55.5\%} (pairwise: Claude--GPT-4o-mini 94.2\% at the high end, keyword--StrongREJECT
+59.9\% at the low end). We note base per-model unsafe rates on this jailbreak-artifact set are
+compressed (0.93--1.00), so reversals occur on small margins; a set with wider baseline
+separation is future work.
+
+\paragraph{Human validation.} The 150-item stratified template
+(\texttt{src/human\_subset.py}) is prepared; the annotation pass (content-invariance and
+ground-truth harm, with inter-annotator $\kappa$) is pending and is the last step before
+submission. By construction the wrappers alter only prepended/appended text, so the
+content-invariance check is expected to pass near-ceiling.
+
+\section{Discussion}
+If a disclaimer or a fake reasoning block can move a safety verdict, then reported ASRs, defense
+win-rates, and safety leaderboards inherit a stylistic bias orthogonal to real harm. The
+practical implication is not ``discard judges'' but ``report the flip budget'': a safety score
+should be accompanied by its sensitivity to content-invariant style, just as a measurement
+should carry its instrument error. Content-focused rubric judging and majority-vote panels are
+natural mitigations; our cross-judge data already indicates the strongest content-only rubric is
+least gameable.
+
+\section{Limitations}
+Nine wrappers are a characterization of this set, not a population estimate. The largest effect
+comes from an overtly adversarial wrapper (token-refusal-then-comply); we report per-wrapper so
+readers can weight each, and note that the subtle harm-hiding wrappers, while above the noise
+floor in CI, do not survive Holm correction at $n\approx291$ and are reported as suggestive.
+The rubric judges use each vendor's small/mid tier (GPT-4o-mini, DeepSeek-Chat, Qwen-Plus,
+Claude Haiku 4.5) rather than their frontier models, for cost and rate-limit reasons; frontier
+rubric judges and the remaining open guards (ShieldGemma, WildGuard) are a complementary axis for
+the camera-ready. Base per-model unsafe rates on the jailbreak-artifact set are compressed, so the
+leaderboard reversals occur on small margins. Gold labels are the JailbreakBench classifier's,
+not human; the prepared 150-item human validation will anchor both the labels and the
+content-invariance assumption. We study single-turn text responses; multi-turn and
+agent-trajectory judging are future work.
+
+\section{Ethics}
+We attack the \emph{evaluation} layer to make safety measurement more honest, not to jailbreak
+models. Responses come from existing public benchmarks; the shipped demo fixture uses
+non-operational placeholder text. Wrappers are stylistic and confer no new harmful capability.
+Exposing judge gameability helps defenders audit and harden their pipelines.
+
+\section*{Reproducibility}
+Code, wrappers, response-set builder, judge adapters, statistics, and per-verdict labels are
+released. \texttt{python -m src.pipeline --smoke} reproduces the full pipeline offline.
+
+\bibliographystyle{plainnat}
+\bibliography{custom}
+
+\appendix
+\section{Extended related work}
+\label{app:related}
+See \texttt{Survey/reports/related\_work\_map.md} for the full multi-venue map
+(COLM/ICLR/ICML/NeurIPS/ACL/EMNLP/AAAI 2025--26).
+
+\end{document}
