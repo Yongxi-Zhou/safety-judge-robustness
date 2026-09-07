@@ -28,3 +28,9 @@ Publication/paper/*.pdf
 Publication/paper/*.synctex.gz
 Publication/paper/*.fdb_latexmk
 Publication/paper/*.fls
+Publication/paper/arxiv/*.aux
+Publication/paper/arxiv/*.log
+Publication/paper/arxiv/*.out
+Publication/paper/arxiv/*.blg
+Publication/paper/arxiv/*.pdf
+Publication/paper/arxiv/*.synctex.gz

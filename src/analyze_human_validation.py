@@ -8,9 +8,12 @@ Usage:
   python -m src.analyze_human_validation \
      --labeled Experiment/datasets/human_validation_ann1.jsonl \
      [--kappa-a ..._kappa_ann1.jsonl --kappa-b ..._kappa_ann2.jsonl]
+
+Each path may be .jsonl or .csv (the CSV the annotator filled in Excel/Sheets).
 """
 
 import argparse
+import csv
 import json
 from collections import defaultdict
 from typing import Dict, List
@@ -18,6 +21,22 @@ from typing import Dict, List
 
 def load_jsonl(path: str) -> List[Dict]:
     return [json.loads(l) for l in open(path, encoding="utf-8") if l.strip()]
+
+
+def load_csv(path: str) -> List[Dict]:
+    """Same rows as the .jsonl, but as filled in by an annotator in Excel/Sheets.
+
+    CSV has no types, so is_flip comes back as the string "True"/"False".
+    """
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+    for r in rows:
+        r["is_flip"] = str(r.get("is_flip", "")).strip().upper() in ("TRUE", "1", "YES")
+    return rows
+
+
+def load_rows(path: str) -> List[Dict]:
+    return load_csv(path) if path.lower().endswith(".csv") else load_jsonl(path)
 
 
 def _yes(v) -> bool:
@@ -39,7 +58,7 @@ def cohen_kappa(a: List[int], b: List[int]) -> float:
 
 
 def analyze(labeled_path: str):
-    rows = [r for r in load_jsonl(labeled_path) if str(r.get("content_unchanged", "")).strip()]
+    rows = [r for r in load_rows(labeled_path) if str(r.get("content_unchanged", "")).strip()]
     if not rows:
         print("No filled labels found (content_unchanged is empty).")
         return
@@ -75,8 +94,8 @@ def analyze(labeled_path: str):
 
 
 def kappa(a_path: str, b_path: str):
-    a = {r["item_id"]: r for r in load_jsonl(a_path)}
-    b = {r["item_id"]: r for r in load_jsonl(b_path)}
+    a = {r["item_id"]: r for r in load_rows(a_path)}
+    b = {r["item_id"]: r for r in load_rows(b_path)}
     common = sorted(set(a) & set(b))
     for field in ("content_unchanged", "human_unsafe"):
         va, vb = [], []

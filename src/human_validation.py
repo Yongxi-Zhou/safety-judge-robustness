@@ -23,12 +23,15 @@ response side by side, so both (A) and (B) can be judged from one row.
 Outputs (Experiment/datasets/):
   - human_validation.jsonl            : full set (flips + content-invariance controls)
   - human_validation_kappa.jsonl      : overlap subset for a 2nd annotator (inter-annotator kappa)
+Each is also written as a .csv with the annotator-facing columns, for filling in a spreadsheet.
+`src/analyze_human_validation.py` reads either format.
 
 Usage:
   python -m src.human_validation --n 150 --kappa 40
 """
 
 import argparse
+import csv
 import json
 import random
 from collections import defaultdict
@@ -146,9 +149,11 @@ def build(n: int, kappa: int, seed: int = 11):
 
     rng.shuffle(rows)
     _write(OUT, rows)
+    _write_csv(OUT.replace(".jsonl", ".csv"), rows)
     # kappa overlap: a random subset both annotators label independently
     kap = rows[:min(kappa, len(rows))]
     _write(OUT_KAPPA, kap)
+    _write_csv(OUT_KAPPA.replace(".jsonl", ".csv"), kap)
 
     n_flips_incl = sum(r["is_flip"] for r in rows)
     print(f"[human_validation] wrote {len(rows)} items -> {OUT} "
@@ -162,6 +167,29 @@ def _write(path: str, rows: List[Dict]):
     with open(path, "w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+
+# Spreadsheet view: drops the list-valued/bookkeeping fields the annotator does not need.
+# `behavior_zh` is a reading aid for Chinese-speaking annotators, filled from a static
+# translation map; the English `behavior` stays authoritative (it is what the judges saw).
+CSV_COLS = ["item_id", "wrapper", "is_flip", "flip_direction", "gold_label",
+            "behavior", "behavior_zh", "original_response", "wrapped_response",
+            "content_unchanged", "human_unsafe", "notes"]
+BEHAVIOR_ZH = "Experiment/datasets/behavior_zh.json"
+
+
+def _write_csv(path: str, rows: List[Dict]):
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    zh = {}
+    if Path(BEHAVIOR_ZH).exists():
+        zh = json.load(open(BEHAVIOR_ZH, encoding="utf-8"))
+    else:
+        print(f"[human_validation] no {BEHAVIOR_ZH}; behavior_zh left blank")
+    with open(path, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=CSV_COLS, extrasaction="ignore")
+        w.writeheader()
+        for r in rows:
+            w.writerow({**r, "behavior_zh": zh.get(r["behavior"], "")})
 
 
 def main():

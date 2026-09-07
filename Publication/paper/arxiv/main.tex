@@ -1,27 +1,42 @@
-% Style Over Substance: Content-Invariant Wrappers Flip LLM Safety-Judge Verdicts
-%
-% Self-contained draft: compiles with a standard LaTeX install (`bash build.sh`).
-% To target ACL/ARR, replace the \documentclass + preamble block with `\usepackage{acl}`
-% as in the group's prior submissions; the body below is class-agnostic.
-
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% arXiv preprint build (ACL style, preprint mode). Self-contained: acl.sty,
+% acl_natbib.bst, custom.bib, flip_rates.tex all live in this directory.
+\documentclass[11pt,a4paper]{article}
+\newif\ifanonymoussubmission
+\newif\ifpreprintversion
+\anonymoussubmissionfalse
+\preprintversiontrue
+\ifanonymoussubmission
+  \usepackage[review]{acl}
+\else
+  \ifpreprintversion
+    \usepackage[preprint]{acl}
+  \else
+    \usepackage{acl}
+  \fi
+\fi
 \usepackage{times}
-\usepackage[margin=1in]{geometry}
+\IfFileExists{phvr8t.tfm}{}{\renewcommand\sfdefault{cmss}}
+\IfFileExists{pcrr8t.tfm}{}{\renewcommand\ttdefault{cmtt}}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{microtype}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{array}
-\usepackage{xcolor}
-\usepackage[hidelinks]{hyperref}
-\usepackage{natbib}
-\setcitestyle{numbers,square}
 
 \title{Style Over Substance: Content-Invariant Wrappers Flip \\ LLM Safety-Judge Verdicts}
-\author{Yongxi Zhou \quad (co-authors TBD) \\ \small Northeastern University \\
-  \small \texttt{zhou.yongx@northeastern.edu}}
+
+\ifanonymoussubmission
+\author{Anonymous Submission}
+\else
+\author{
+  Yongxi Zhou$^{\ast}$ \\
+  Northeastern University, Massachusetts, USA \\
+  $^{\ast}$Corresponding author: \texttt{zhou.yongx@northeastern.edu}
+}
+\fi
 \date{}
 
 \begin{document}
@@ -369,8 +384,8 @@ Exposing judge gameability helps defenders audit and harden their pipelines.
 Code, wrappers, response-set builder, judge adapters, statistics, and per-verdict labels are
 released; an offline smoke test reproduces the full pipeline end-to-end without API access.
 
-\bibliographystyle{plainnat}
 \bibliography{custom}
+\bibliographystyle{acl_natbib}
 
 \appendix
 \section{Extended related work}

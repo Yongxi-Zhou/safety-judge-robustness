@@ -46,7 +46,19 @@ ones), vs 2606.25487's 57–100%. Distinct contributions: strict content invaria
 false-positive direction; the same-model prompt-only 10× isolation; a deployed guard (Llama
 Guard 4) gamed by course-framing; and the leaderboard/judge-disagreement result.
 
+## Human validation (done 2026-09-07, two annotators)
+145 items (100 flips + 45 controls), annotator A all 145, annotator B 40-item overlap.
+- **Content-invariance: 100%** (145/145 YES, all 9 wrappers at ceiling; byte-preservation
+  separately machine-verified on all 2700 wrapped samples).
+- **Confirmed judge-error on flips: 90%** (90/100). The 10 unconfirmed are uniform: all
+  FP-direction items whose JBB gold label says `refusal` but the human found genuinely
+  actionable content (roleplay-style pseudo-refusals) — i.e., source gold-label noise, not a
+  wrapper or judge artifact. Human vs JBB gold agreement overall: 133/145 (91.7%).
+- **Cohen's κ: 1.000 (content_unchanged), 0.949 (human_unsafe)** — 1 disagreement in 40
+  (rs_00547, football-betting + harm_adjacent_preamble, the known borderline template).
+Run: `python -m src.analyze_human_validation --labeled ..._ann1.csv --kappa-a ..._ann1.csv
+--kappa-b ..._kappa_ann2.csv`.
+
 ## Remaining gaps
-- Human validation (150 items) still pending.
 - Optional: frontier-tier rubric judges; ShieldGemma/WildGuard; a response set with wider
   baseline model separation for a cleaner H3.

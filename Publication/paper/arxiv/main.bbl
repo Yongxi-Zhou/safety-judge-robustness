@@ -1,0 +1,239 @@
+\begin{thebibliography}{28}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Chao et~al.(2024)Chao, Debenedetti, Robey, Andriushchenko, Croce,
+  Sehwag, Dobriban, Flammarion, Pappas, Tram{\`e}r, Hassani, and
+  Wong}]{jailbreakbench}
+Patrick Chao, Edoardo Debenedetti, Alexander Robey, Maksym Andriushchenko,
+  Francesco Croce, Vikash Sehwag, Edgar Dobriban, Nicolas Flammarion, George~J.
+  Pappas, Florian Tram{\`e}r, Hamed Hassani, and Eric Wong. 2024.
+\newblock \href {https://arxiv.org/abs/2404.01318} {{JailbreakBench}: An open
+  robustness benchmark for jailbreaking large language models}.
+\newblock In \emph{NeurIPS Datasets and Benchmarks Track}.
+
+\bibitem[{Chouldechova et~al.(2025)Chouldechova, Cooper, Barocas, Palia, Vann,
+  and Wallach}]{asrposition2025}
+Alexandra Chouldechova, A.~Feder Cooper, Solon Barocas, Abhinav Palia, Dan
+  Vann, and Hanna Wallach. 2025.
+\newblock \href {https://arxiv.org/abs/2601.18076} {Comparison requires valid
+  measurement: Rethinking attack success rate comparisons in {AI} red teaming}.
+\newblock In \emph{NeurIPS}.
+
+\bibitem[{Cui et~al.(2025)Cui, Chiang, Stoica, and Hsieh}]{orbench2025}
+Justin Cui, Wei-Lin Chiang, Ion Stoica, and Cho-Jui Hsieh. 2025.
+\newblock \href {https://arxiv.org/abs/2405.20947} {{OR-Bench}: An over-refusal
+  benchmark for large language models}.
+\newblock In \emph{ICML}.
+
+\bibitem[{Ding et~al.(2026)Ding, Wang, Su, Tian, Ye, and
+  Jian}]{ding2026synergistic}
+Yongkang Ding, Yuxiang Wang, Yiyun Su, Yu~Tian, Zi~Ye, and Xiangzhou Jian.
+  2026.
+\newblock \href {https://doi.org/10.1016/j.knosys.2026.116132} {Synergistic
+  cross-modal prompt learning and structural knowledge distillation for
+  cloth-changing person re-identification}.
+\newblock \emph{Knowledge-Based Systems}, 345:116132.
+
+\bibitem[{Haldar and Hockenmaier(2025)}]{ratingroulette2025}
+Rajarshi Haldar and Julia Hockenmaier. 2025.
+\newblock \href {https://arxiv.org/abs/2510.27106} {Rating roulette:
+  Self-inconsistency in {LLM}-as-a-judge frameworks}.
+\newblock In \emph{Findings of EMNLP}.
+
+\bibitem[{Huang et~al.(2026{\natexlab{a}})Huang, Zhang, Wu, Li, Zhang, Rong,
+  Yao, Zhang, and Jia}]{jailmeter2026}
+Qingjia Huang, Jingyu Zhang, Jianguo Wu, Yakai Li, Weijuan Zhang, Yankai Rong,
+  Junyi Yao, Shengzhi Zhang, and Xiaoqi Jia. 2026{\natexlab{a}}.
+\newblock \href {https://arxiv.org/abs/2607.19424} {{JailMeter}: An
+  evidence-based evaluation framework for jailbreak attacks on large language
+  models}.
+\newblock In \emph{Findings of ACL}.
+
+\bibitem[{Huang et~al.(2026{\natexlab{b}})Huang, Wang, Li, Wu, and
+  Wang}]{guidedbench2026}
+Ruixuan Huang, Xunguang Wang, Zongjie Li, Daoyuan Wu, and Shuai Wang.
+  2026{\natexlab{b}}.
+\newblock \href {https://openreview.net/forum?id=ZVg8y3ibyM} {{GuidedBench}:
+  Measuring and mitigating the evaluation discrepancies of in-the-wild {LLM}
+  jailbreak methods}.
+\newblock In \emph{The Fourteenth International Conference on Learning
+  Representations}.
+
+\bibitem[{Huang et~al.(2026{\natexlab{c}})Huang, He, Shang, Xu, Li, Lyu, and
+  Nair}]{huang2026dacri}
+Shiqi Huang, Jiani He, Dingyan Shang, Yihua Xu, Jize Li, Yan Lyu, and
+  Lashimi~Muraleedharan Nair. 2026{\natexlab{c}}.
+\newblock \href {https://arxiv.org/abs/2608.11154} {{DACRI}: Decision-aware
+  causal intervention ranking for critical supply chains}.
+\newblock \emph{Preprint}, arXiv:2608.11154.
+
+\bibitem[{Jiang et~al.(2026{\natexlab{a}})Jiang, Yang, Li, Liu, Yu, and
+  Liu}]{jiang2026chaincaps}
+Xiaochong Jiang, Shiqi Yang, Ziwei Li, Lifei Liu, Haoran Yu, and Yichen Liu.
+  2026{\natexlab{a}}.
+\newblock \href {https://arxiv.org/abs/2605.26542} {{ChainCaps}:
+  Composition-safe tool-using agents via monotonic capability attenuation}.
+\newblock \emph{Preprint}, arXiv:2605.26542.
+\newblock AIWILD Workshop @ ICML 2026.
+
+\bibitem[{Jiang et~al.(2026{\natexlab{b}})Jiang, Yang, Yang, Liu, and
+  Ji}]{jiang2026attacksurface}
+Xiaochong Jiang, Shiqi Yang, Wenting Yang, Yichen Liu, and Cheng Ji.
+  2026{\natexlab{b}}.
+\newblock \href {https://arxiv.org/abs/2602.19555} {Agentic {AI} as a
+  cybersecurity attack surface: Threats, exploits, and defenses in runtime
+  supply chains}.
+\newblock In \emph{2026 IEEE Conference on Artificial Intelligence (CAI)},
+  pages 2142--2149. IEEE.
+
+\bibitem[{Li et~al.(2026)Li, He, Yang, Shang, Liu, and Huang}]{li2026stability}
+Jize Li, Jiani He, Dishu Yang, Dingyan Shang, Jingjing Liu, and Shiqi Huang.
+  2026.
+\newblock \href {https://arxiv.org/abs/2607.13331} {Accuracy-preserving
+  stability regularization for large-scale retail demand forecasting}.
+\newblock \emph{Preprint}, arXiv:2607.13331.
+
+\bibitem[{Liu et~al.(2026)Liu, Yu, Jiang, Wang, Qian, and
+  Chen}]{liu2026reframing}
+Lifei Liu, Haoran Yu, Xiaochong Jiang, Su~Wang, Pin Qian, and Yihang Chen.
+  2026.
+\newblock \href {https://arxiv.org/abs/2607.07097} {Operational reframing and
+  approval-framed delegation in multi-agent {LLM} safety}.
+\newblock \emph{Preprint}, arXiv:2607.07097.
+
+\bibitem[{McKenzie et~al.(2026)McKenzie, Hollinsworth, Tseng, Davies, Casper,
+  Tucker, Kirk, and Gleave}]{stack2026}
+Ian~R. McKenzie, Oskar~J. Hollinsworth, Tom Tseng, Xander Davies, Stephen
+  Casper, Aaron~D. Tucker, Robert Kirk, and Adam Gleave. 2026.
+\newblock \href {https://arxiv.org/abs/2506.24068} {{STACK}: Adversarial
+  attacks on {LLM} safeguard pipelines}.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial
+  Intelligence}.
+
+\bibitem[{Qian et~al.(2026)Qian, Wang, Peng, You, Liu, Yu, Chen, and
+  Jiang}]{qian2026activerag}
+Pin Qian, Su~Wang, Chong Peng, Junxian You, Lifei Liu, Haoran Yu, Yihang Chen,
+  and Xiaochong Jiang. 2026.
+\newblock \href {https://arxiv.org/abs/2607.24010} {When should active {RAG}
+  retrieve? a budget-aware evaluation of utility, calibration, and cost}.
+\newblock \emph{Preprint}, arXiv:2607.24010.
+\newblock KDD 2026 Workshop on Evaluation and Trustworthiness of Agentic AI.
+
+\bibitem[{Su et~al.(2026{\natexlab{a}})Su, Peng, Tian, Liu, Zhao, Zhu, Zhang,
+  and Zeng}]{su2026agenticsql}
+Yiyun Su, Zujun Peng, Yu~Tian, Yuting Liu, Changruo Zhao, Huiying Zhu, Luyan
+  Zhang, and Heming Zeng. 2026{\natexlab{a}}.
+\newblock Agentic-{SQL} revisited: Autonomy-based taxonomy and empirical
+  benchmark analysis for {LLM} text-to-{SQL}.
+\newblock \emph{arXiv preprint arXiv:2608.15389}.
+
+\bibitem[{Su et~al.(2026{\natexlab{b}})Su, Zhu, Tian, Zhao, Peng, Liu, Zhang,
+  Fan, and Li}]{su2026agentic}
+Yiyun Su, Huiying Zhu, Yu~Tian, Changruo Zhao, Zujun Peng, Yuting Liu, Luyan
+  Zhang, Liang Fan, and Baihua Li. 2026{\natexlab{b}}.
+\newblock Agentic-{SQL} taxonomy: The research of autonomous and interactive
+  text-to-{SQL} with {LLMs}.
+\newblock In \emph{International Conference on Intelligent Computing}, pages
+  323--334. Springer.
+
+\bibitem[{Tian et~al.(2025)Tian, Yang, Liu, Su, Hong, Gong, and
+  Xu}]{tian2025centermamba}
+Yu~Tian, Zhongheng Yang, Chenshi Liu, Yiyun Su, Ziwei Hong, Zexi Gong, and
+  Jingyuan Xu. 2025.
+\newblock \href {https://doi.org/10.1109/ICCBDAI66607.2025.11387999}
+  {{CenterMamba-SAM}: Center-prioritized scanning and temporal prototypes for
+  brain lesion segmentation}.
+\newblock In \emph{2025 IEEE 6th International Conference on Computer, Big
+  Data, Artificial Intelligence (ICCBD+AI)}, pages 1--5. IEEE.
+
+\bibitem[{Wang et~al.(2025)Wang, Lou, Tang, Chen, Zhao, Zhang, Song, and
+  He}]{lrmbias2025}
+Qian Wang, Zhanzhi Lou, Zhenheng Tang, Nuo Chen, Xuandong Zhao, Wenxuan Zhang,
+  Dawn Song, and Bingsheng He. 2025.
+\newblock \href {https://openreview.net/forum?id=SlRtFwBdzP} {Assessing judging
+  bias in large reasoning models: An empirical study}.
+\newblock In \emph{Second Conference on Language Modeling}.
+
+\bibitem[{Wang et~al.(2026{\natexlab{a}})Wang, Qian, Chen, You, Wang, Jiang,
+  Liu, Yu, and Xu}]{wang2026skills}
+Su~Wang, Pin Qian, Yihang Chen, Junxian You, Xiaoyuan Wang, Xiaochong Jiang,
+  Lifei Liu, Haoran Yu, and Jingzhou Xu. 2026{\natexlab{a}}.
+\newblock \href {https://arxiv.org/abs/2606.00448} {When safe skills collide:
+  Measuring compositional risk in agent skill ecosystems}.
+\newblock \emph{Preprint}, arXiv:2606.00448.
+
+\bibitem[{Wang et~al.(2026{\natexlab{b}})Wang, Qian, Lin, Xu, Chen, Jiang, Liu,
+  and Yu}]{wang2026phantom}
+Su~Wang, Pin Qian, Yifan Lin, Jingzhou Xu, Yihang Chen, Xiaochong Jiang, Lifei
+  Liu, and Haoran Yu. 2026{\natexlab{b}}.
+\newblock \href {https://arxiv.org/abs/2607.13083} {Phantom guardrails: When
+  self-improving agent harnesses fix failures that never happened}.
+\newblock \emph{Preprint}, arXiv:2607.13083.
+
+\bibitem[{Wu et~al.(2025)Wu, Li, and Su}]{wu2025bridging}
+Hao Wu, Hui Li, and Yiyun Su. 2025.
+\newblock \href {https://arxiv.org/abs/2512.24013} {Bridging the
+  perception-cognition gap: Re-engineering {SAM2} with hilbert-mamba for robust
+  {VLM}-based medical diagnosis}.
+\newblock In \emph{2025 IEEE International Conference on Bioinformatics and
+  Biomedicine (BIBM)}, pages 4275--4278. IEEE.
+
+\bibitem[{Xiang et~al.(2026)Xiang, Zhang, Zhang, and Xu}]{xiang2026crossmodel}
+Zuodong Xiang, Yike Zhang, YueMing Zhang, and Hailu Xu. 2026.
+\newblock \href {https://arxiv.org/abs/2607.21656} {Cross-model {LLM} code
+  review: Should you use {Claude} to review {Codex} or vice versa?}
+\newblock \emph{Preprint}, arXiv:2607.21656.
+\newblock KDD 2026 Workshop on Agentic Software Engineering (SE 3.0).
+
+\bibitem[{Yu et~al.(2026)Yu, Liu, Jiang, Jia, Wang, Qian, and
+  Chen}]{yu2026habituation}
+Haoran Yu, Lifei Liu, Xiaochong Jiang, Yuwen Jia, Su~Wang, Pin Qian, and Yihang
+  Chen. 2026.
+\newblock \href {https://arxiv.org/abs/2606.22721} {Habituation at the gate:
+  Rising approval and declining scrutiny in human review of {AI} agent code}.
+\newblock \emph{Preprint}, arXiv:2606.22721.
+\newblock KDD 2026 Workshop on Agentic Software Engineering (SE 3.0).
+
+\bibitem[{Zhang et~al.(2026{\natexlab{a}})Zhang, Xiang, and
+  Xu}]{zhang2026performance}
+Yike Zhang, Zuodong Xiang, and Hailu Xu. 2026{\natexlab{a}}.
+\newblock Performance-efficiency trade-offs in human preference prediction: A
+  comparative study of traditional machine learning and large language models.
+\newblock In \emph{Proceedings of the 31st IEEE Symposium on Computers and
+  Communications (ISCC)}. IEEE.
+
+\bibitem[{Zhang et~al.(2026{\natexlab{b}})Zhang, He, Chang, Zhang, Zhou, and
+  Huang}]{zhang2026prism}
+Yuan Zhang, Jiajun He, Lu~Chang, Yuanzhe Zhang, Quan Zhou, and Shiqi Huang.
+  2026{\natexlab{b}}.
+\newblock \href {https://doi.org/10.1109/EITCE70137.2026.11634399} {{PRISM}:
+  Privacy-aware recommendation with noisy {LLM}-derived signals}.
+\newblock In \emph{2026 10th International Conference on Electronic Information
+  Technology and Computer Engineering (EITCE)}, pages 1161--1167. IEEE.
+
+\bibitem[{Zheng et~al.(2025)Zheng, Pang, Du, Liu, Jiang, and
+  Lin}]{cheating2025}
+Xiaosen Zheng, Tianyu Pang, Chao Du, Qian Liu, Jing Jiang, and Min Lin. 2025.
+\newblock \href {https://arxiv.org/abs/2410.07137} {Cheating automatic {LLM}
+  benchmarks: Null models achieve high win rates}.
+\newblock In \emph{ICLR}.
+\newblock Oral.
+
+\bibitem[{Zhou et~al.(2026{\natexlab{a}})Zhou, Choi, Wen, and
+  Ye}]{zhou2026reliability}
+Yongxi Zhou, Lai~Yun Choi, Jiaxi Wen, and Wenbo Ye. 2026{\natexlab{a}}.
+\newblock \href {https://arxiv.org/abs/2606.00920} {Accuracy, stability, and
+  repeated-run reliability of large language models on deterministic
+  programming tasks}.
+\newblock \emph{Preprint}, arXiv:2606.00920.
+
+\bibitem[{Zhou et~al.(2026{\natexlab{b}})Zhou, Yao, Liu, Dong, Ye, Wen, and
+  Choi}]{zhou2026surfaceform}
+Yongxi Zhou, Junwei Yao, Yuanzhe Liu, Zihan Dong, Wenbo Ye, Jiaxi Wen, and
+  Lai~Yun Choi. 2026{\natexlab{b}}.
+\newblock \href {https://arxiv.org/abs/2608.02665} {Single canonical prompts
+  underestimate {LLM} safety's surface-form sensitivity}.
+\newblock \emph{Preprint}, arXiv:2608.02665.
+\newblock Sci-FM Workshop @ COLM 2026.
+
+\end{thebibliography}
