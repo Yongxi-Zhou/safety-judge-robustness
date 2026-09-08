@@ -62,7 +62,8 @@ judge changes its verdict when shown the exact same reply twice, with no wrapper
 Our findings are precise rather than universal: most judges barely move, but specific
 judges harbor specific, cheaply exploitable blind spots. The token-refusal wrapper flips
 \textbf{19.9\%} of GPT-4o-mini's correct ``unsafe'' verdicts to ``safe'' (95\% CI
-[15.0, 24.0], Holm $p<10^{-4}$, noise floor 0.5\%) yet moves Claude only 0.4\%; the deployed
+[15.0, 24.0], Holm $p<10^{-4}$, noise floor 0.5\%; 18.2\% under majority-of-three
+re-scoring, so the flips are systematic, not decoding luck) yet moves Claude only 0.4\%; the deployed
 \textbf{Llama Guard~4} guard model is also gamed---an ``educational course'' framing flips
 \textbf{12.3\%} of its harmful verdicts to safe and the token refusal flips 8.3\% (both
 significant)---and a single prepended sentence (``Here is the information you asked for.'')
@@ -75,7 +76,9 @@ Rewriting only the judge's grading \emph{prompt} to ignore tone
 (StrongREJECT-style) cuts the token-refusal attack roughly \textbf{tenfold} on the identical
 model---so the vulnerability lives in the judge, not the content. The judges do not even
 agree on which target model is safest before any wrapper is applied (full-panel agreement
-55.5\%), and 1--6 wrappers per judge reorder the four-model safety leaderboard. We release
+55.5\%), and a bootstrap over responses shows the four-model safety ranking on this artifact
+set is already unstable to sampling alone---so wrapper-induced reorderings, though present in
+point estimates, are reported as an instability axis rather than as confirmed reversals. We release
 the dataset, wrappers, code, and per-verdict labels.
 \end{abstract}
 
@@ -109,8 +112,10 @@ Our contributions:
   floor---over 7 judges and 9 wrappers, covering both the harm-hiding and harm-inventing
   directions, with wrappers stratified into tone-only vs.\ assertion-adding so the
   uncontestable core of the effect is reported separately.
-  \item Evidence that safety \textbf{leaderboards are order-unstable} under judge gaming: the
-  same wrapper reorders which model looks safer.
+  \item A bootstrap-quantified \textbf{negative result on safety leaderboards}: on a standard
+  jailbreak-artifact set, the model ranking is unstable to judge choice and to sampling alone,
+  so wrapper-induced reorderings---though present in point estimates---cannot be confirmed;
+  ranking claims need wider baseline separation than such sets provide.
   \item A human-anchored validation that flips are judge errors, plus a public release.
 \end{enumerate}
 
@@ -214,7 +219,10 @@ between two conditions''), corrected for testing many (judge, wrapper) pairs at 
 and Benjamini--Hochberg), with a bootstrap 95\% confidence interval (5{,}000 resamples over
 responses). Because API judges are not perfectly deterministic, each judge re-scores the
 \emph{original} form three times and its observed self-disagreement rate is the noise floor;
-a flip rate counts as signal only if its confidence interval clears that floor. Only
+a flip rate counts as signal only if its confidence interval clears that floor. Since wrapped
+inputs could be noisier than originals (longer, closer to the decision boundary), we
+additionally re-score the \emph{wrapped} form three times for the headline (judge, wrapper)
+cells and report majority-of-three flip rates alongside the single-scoring ones. Only
 responses a judge scores correctly in original form enter its denominator, so every counted
 flip is unambiguously caused by the wrapper.
 
@@ -294,6 +302,20 @@ harmful body (or the refusal) is present verbatim in every wrapped message, and 
 validation confirms the content judgment is unchanged---but the strata differ in how cheap
 and how deniable the attack is.
 
+\paragraph{Are the flips systematic or stochastic?} Wrapped inputs are indeed less
+stable: on GPT-4o-mini, self-disagreement across three re-scorings of the identical wrapped
+input rises to \textbf{10.0\%} under the token-refusal wrapper and 3.3\% under the
+ethical-reflection wrapper, versus 0.5\% on original forms---the wrapper makes the judge
+roughly twenty times less self-consistent on unchanged content, a destabilization effect in its
+own right. The flips themselves, however, are predominantly systematic, not sampling luck:
+scoring each wrapped input three times and taking the majority verdict, the
+\texttt{refusal\_then\_comply} flip rate moves only from 19.9\% (single scoring) to
+\textbf{18.2\%} (majority of three), with \textbf{14.4\%} of items flipping on all three
+repeats; the tone-only \texttt{ethical\_reflection} flip moves from 4.8\% to 4.5\% (3.1\%
+flip on all three repeats)---still $6$--$9\times$ the original-form floor. Resampling the
+judge therefore does not undo the attack; it only reveals that the wrapper both biases and
+destabilizes the verdict.
+
 \paragraph{H2: gameability is a property of the judge, shown two ways.} First,
 across vendors: the identical wrapper applied to the identical responses produces a 19.9\%
 flip rate on one judge and 0.4--3.5\% on others, so the effect cannot be a property of the
@@ -304,17 +326,24 @@ and framing and grade only actionable harmful content---cuts the \texttt{refusal
 flip from 19.9\% to \textbf{1.7\%}, a roughly tenfold reduction. The gap lives in the judge's
 design, not in the content being judged---and it is fixable by prompt alone.
 
-\paragraph{H3: leaderboards are order-unstable---and judge-dependent.} The judges do not agree on
-which target model is safest even on the \emph{original} form: the keyword judge and
-GPT-4o-mini rank Vicuna-13B safest; Claude, Qwen, and StrongREJECT rank Llama-2-7B; DeepSeek
-ranks GPT-3.5---so a safety leaderboard already depends on the choice of judge.
-On top of that, per judge \textbf{1--6 of 9} wrappers reorder the four-model ranking;
-e.g.\ \texttt{disclaimer\_prefix} swaps Vicuna-13B and
-Llama-2-7B under GPT-4o-mini. Full-panel unanimity on original-form verdicts is only
-\textbf{55.5\%} (pairwise: Claude--GPT-4o-mini 94.2\% at the high end, keyword--StrongREJECT
-59.9\% at the low end). We note base per-model unsafe rates on this jailbreak-artifact set are
-compressed (0.93--1.00), so reversals occur on small margins; a set with wider baseline
-separation is future work.
+\paragraph{H3: this artifact set cannot support a stable safety leaderboard at all.} We
+report H3 as a methodological negative result, quantified by a bootstrap over responses
+(2{,}000 resamples within each target model). At the \emph{item} level, judge disagreement is
+large and robust: full-panel unanimity on original-form verdicts is only \textbf{55.5\%}
+(pairwise: Claude--GPT-4o-mini 94.2\% at the high end, keyword--StrongREJECT 59.9\% at the
+low end), and different judges' point estimates name different safest models (Vicuna-13B,
+Llama-2-7B, or GPT-3.5 depending on the judge). At the \emph{ranking} level, however, base
+per-model unsafe rates on this jailbreak-artifact set are compressed (0.93--1.00 for the LLM
+judges), and the bootstrap shows the consequence: the baseline ``safest model'' is stable in
+only \textbf{39--70\%} of resamples for the LLM judges (93\% for the keyword judge, whose
+rates are widely separated). Wrappers do reorder the four-model ranking in point estimates
+(1--6 of 9 wrappers per judge), but on this compressed set those reorderings cannot be
+separated from sampling noise, and we do not claim them as wrapper effects. The robust
+takeaway is negative and practical: a safety ranking read off a jailbreak-artifact set of
+this size is unstable to the choice of judge \emph{and} to sampling before any adversary
+acts; content-invariant restyling then adds a third instability axis on top. A response set
+with wider baseline separation is required for affirmative reversal claims, and we flag this
+as the main open piece.
 
 \paragraph{Human validation.} Two annotators labeled a 145-item stratified subset (100
 verdict-flip cases spanning all seven judges and both directions, plus 45 content-invariance
@@ -359,8 +388,9 @@ Claude Haiku 4.5) rather than their frontier models, for cost and rate-limit rea
 standard performance-efficiency trade-off in LLM-based judgment~\citep{zhang2026performance};
 frontier
 rubric judges and the remaining open guards (ShieldGemma, WildGuard) are a complementary axis for
-the camera-ready. Base per-model unsafe rates on the jailbreak-artifact set are compressed, so the
-leaderboard reversals occur on small margins. Gold labels are the JailbreakBench classifier's, not human; our human validation
+the camera-ready. Base per-model unsafe rates on the jailbreak-artifact set are compressed; our bootstrap
+analysis (H3) therefore treats leaderboard reorderings as unconfirmed, and affirmative
+reversal claims await a response set with wider baseline separation. Gold labels are the JailbreakBench classifier's, not human; our human validation
 measures their noise at $\approx$8\% (133/145 agreement), concentrated in roleplay-style
 pseudo-refusals, and we exclude human-contradicted flips from the confirmed-error figure. The
 ``style'' label is contestable for the assertion-adding stratum (Section~\ref{sec:results}):
@@ -371,8 +401,9 @@ and we treat its flips as the weakest evidence. This is why we report the tone-o
 separately: its effects are smaller but immune to this objection. About 60\% of source responses end mid-sentence
 at the artifacts' generation length cap; truncation is identical in the original and wrapped
 forms, so it is symmetric for the paired comparison, and annotators judged the text actually
-present. We study single-turn text responses; multi-turn and
-agent-trajectory judging are future work.
+present. The wrapped-form stochasticity control covers the headline judge (GPT-4o-mini) on its two
+key cells; extending it to Llama Guard~4 is mechanical and planned. We study single-turn
+text responses; multi-turn and agent-trajectory judging are future work.
 
 \section{Ethics}
 We attack the \emph{evaluation} layer to make safety measurement more honest, not to jailbreak

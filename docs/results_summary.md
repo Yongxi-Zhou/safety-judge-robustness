@@ -36,8 +36,13 @@ only mildly moves Llama Guard (8.3%). No single wrapper is universally strongest
 Prompt-only: same model (GPT-4o-mini), StrongREJECT rubric cuts refusal_then_comply 19.9%→1.7%
 (~10×). Gameability lives in judge design.
 
-**H3 — leaderboard unstable and judge-dependent.** Judges disagree on the safest model at
-baseline (full-panel unanimity 55.5%); per judge 1–6 of 9 wrappers reorder the 4-model ranking.
+**H3 — downgraded to a bootstrap-quantified negative result (2026-09-07).** Item-level judge
+disagreement is robust (unanimity 55.5%), but a 2000-resample bootstrap
+(`src/rank_bootstrap.py` → `Experiment/analysis/rank_bootstrap.json`) shows the baseline
+"safest model" is stable in only 39–70% of resamples for the LLM judges (93% keyword) —
+the compressed artifact set (0.93–1.00 unsafe rates) cannot support ranking claims at all.
+Wrapper reorderings (1–6 of 9 per judge in point estimates) are therefore reported as an
+instability axis, not confirmed reversals. Paper H3 rewritten accordingly.
 
 ## vs external prior art (2606.25487, Know Thy Judge, SOS-Bench, JAILJUDGE)
 Our content-invariant, byte-preserved wrappers give a controlled, measured picture: effects are
@@ -58,6 +63,17 @@ Guard 4) gamed by course-framing; and the leaderboard/judge-disagreement result.
   (rs_00547, football-betting + harm_adjacent_preamble, the known borderline template).
 Run: `python -m src.analyze_human_validation --labeled ..._ann1.csv --kappa-a ..._ann1.csv
 --kappa-b ..._kappa_ann2.csv`.
+
+## Wrapped-form stochasticity control (R4, 2026-09-07)
+Re-scored wrapped forms 3x on the headline GPT-4o-mini cells (`src/wrapped_noise.py`):
+- Self-disagreement on identical wrapped input: 10.0% (refusal_then_comply), 3.3%
+  (ethical_reflection) vs 0.5% on originals — the wrapper destabilizes the judge ~20x
+  (a finding in itself).
+- Flips are systematic, not decoding luck: majority-of-3 flip 18.2% (vs 19.9% single),
+  14.4% flip on all 3 repeats; tone-only ethical_reflection 4.5% majority / 3.1% persistent,
+  still 6–9x the original floor.
+- Llama Guard 4 cells pending: OpenRouter API key expired 2026-09-0x; renew key then run
+  `python -m src.wrapped_noise run` (CELLS already includes llamaguard_or).
 
 ## Remaining gaps
 - Optional: frontier-tier rubric judges; ShieldGemma/WildGuard; a response set with wider
