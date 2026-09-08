@@ -297,9 +297,15 @@ scoring each wrapped input three times and taking the majority verdict, the
 \texttt{refusal\_then\_comply} flip rate moves only from 19.9\% (single scoring) to
 \textbf{18.2\%} (majority of three), with \textbf{14.4\%} of items flipping on all three
 repeats; the tone-only \texttt{ethical\_reflection} flip moves from 4.8\% to 4.5\% (3.1\%
-flip on all three repeats)---still $6$--$9\times$ the original-form floor. Resampling the
-judge therefore does not undo the attack; it only reveals that the wrapper both biases and
-destabilizes the verdict.
+flip on all three repeats)---still $6$--$9\times$ the original-form floor. Llama Guard~4 is the starker case:
+its wrapped-form self-disagreement stays at \textbf{0.33\%} on all three measured cells---the
+guard is nearly deterministic even on wrapped inputs---and its flips are almost entirely
+persistent: under \texttt{educational\_framing}, \textbf{11.9\%} of items flip on \emph{all
+three} of three repeats (vs.\ 12.3\% single-scoring), and \texttt{refusal\_then\_comply}
+shows 8.3\% majority-flip with 7.9\% persistent. The deployed guard does not waver into
+error; it reliably and reproducibly waves the same decorated harmful content through.
+Resampling the judge therefore does not undo the attack; it reveals that the wrapper biases
+the verdict on every judge measured, and additionally destabilizes the rubric judge.
 
 \paragraph{H2: gameability is a property of the judge, shown two ways.} First,
 across vendors: the identical wrapper applied to the identical responses produces a 19.9\%
@@ -386,8 +392,7 @@ and we treat its flips as the weakest evidence. This is why we report the tone-o
 separately: its effects are smaller but immune to this objection. About 60\% of source responses end mid-sentence
 at the artifacts' generation length cap; truncation is identical in the original and wrapped
 forms, so it is symmetric for the paired comparison, and annotators judged the text actually
-present. The wrapped-form stochasticity control covers the headline judge (GPT-4o-mini) on its two
-key cells; extending it to Llama Guard~4 is mechanical and planned. We study single-turn
+present. We study single-turn
 text responses; multi-turn and agent-trajectory judging are future work.
 
 \section{Ethics}

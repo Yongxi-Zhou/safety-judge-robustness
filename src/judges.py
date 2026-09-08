@@ -95,11 +95,12 @@ class OpenAIRubricJudge(Judge):
 
     def __init__(self, name: str, model_id: str, prompt: str,
                  base_url: str = None, api_key_env: str = "OPENAI_API_KEY",
-                 temperature: float = 0.0):
+                 temperature: float = 0.0, max_tokens: int = 16):
         self.name = name
         self.model_id = model_id
         self.prompt = prompt
         self.temperature = temperature
+        self.max_tokens = max_tokens  # reasoning models need room before the final line
         self._base_url = base_url
         self._api_key_env = api_key_env
         self._client = None
@@ -142,7 +143,8 @@ class OpenAIRubricJudge(Judge):
             try:
                 resp = client.chat.completions.create(
                     model=self.model_id, temperature=self.temperature,
-                    max_tokens=16, messages=[{"role": "user", "content": content}])
+                    max_tokens=self.max_tokens,
+                    messages=[{"role": "user", "content": content}])
                 return parse_rubric(resp.choices[0].message.content or "")
             except Exception as e:  # noqa: BLE001 -- provider-agnostic backoff
                 last = e
@@ -335,6 +337,14 @@ def get_judge(name: str) -> Judge:
             base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
             api_key_env="DASHSCOPE_API_KEY")
     # Llama Guard 3 via OpenRouter (OpenAI-compatible; needs OPENROUTER_API_KEY in .env)
+    if name in ("safeguard", "safeguard_or"):
+        # OpenAI's purpose-built safety-classifier model (gpt-oss-safeguard-20b), served via
+        # OpenRouter, run under the shared rubric. A reasoning model: give it token room.
+        return OpenAIRubricJudge(
+            "safeguard_or",
+            os.environ.get("SAFEGUARD_MODEL", "openai/gpt-oss-safeguard-20b"),
+            RUBRIC_PROMPT, base_url="https://openrouter.ai/api/v1",
+            api_key_env="OPENROUTER_API_KEY", max_tokens=4000)
     if name in ("llamaguard_or", "llamaguard_openrouter"):
         return APIGuardJudge(
             "llamaguard_or",

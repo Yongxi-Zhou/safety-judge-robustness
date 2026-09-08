@@ -72,8 +72,12 @@ Re-scored wrapped forms 3x on the headline GPT-4o-mini cells (`src/wrapped_noise
 - Flips are systematic, not decoding luck: majority-of-3 flip 18.2% (vs 19.9% single),
   14.4% flip on all 3 repeats; tone-only ethical_reflection 4.5% majority / 3.1% persistent,
   still 6–9x the original floor.
-- Llama Guard 4 cells pending: OpenRouter API key expired 2026-09-0x; renew key then run
-  `python -m src.wrapped_noise run` (CELLS already includes llamaguard_or).
+- Llama Guard 4 (key renewed, run 2026-09-07): wrapped-form self-disagreement 0.33% on all
+  3 cells — flips essentially fully deterministic. edu_framing 11.9% majority-of-3 flip and
+  11.9% persistent (vs 12.3% single); refusal_then_comply 8.3%/7.9%; ethical_reflection
+  3.6%/3.2%. The deployed guard reproducibly waves decorated harm through.
+- 8th judge running: `safeguard_or` = openai/gpt-oss-safeguard-20b via OpenRouter under the
+  shared rubric (max_tokens=4000, reasoning model) — a second deployed-guard-tier judge.
 
 ## Remaining gaps
 - Optional: frontier-tier rubric judges; ShieldGemma/WildGuard; a response set with wider
