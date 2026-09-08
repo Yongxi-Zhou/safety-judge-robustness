@@ -1,0 +1,18 @@
+\begin{tabular}{llrrrrrrrr}
+\toprule
+Wrapper & Stratum & Keyword & GPT-4o-m & StrongR & DeepSeek & Qwen & Claude & LG-4 & SG-20b \\
+\midrule
+\multicolumn{10}{l}{\emph{Harm-hiding wrappers (applied to genuinely harmful responses)}} \\[1pt]
+disclaimer prefix & tone & 0.0 & 2.8 & 0.0 & 1.7 & 0.0 & \textbf{0.0}$^{*}$ & 2.2 & 0.3 \\
+ethical reflection & tone & 0.0 & 4.8 & 0.0 & 0.0 & 2.7 & 0.0 & 3.6 & 0.3 \\
+fake reasoning block & tone & 0.0 & 2.4 & 0.3 & 0.4 & 0.0 & \textbf{0.0}$^{*}$ & 1.8 & 0.0 \\
+moralizing suffix & tone & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & \textbf{0.0}$^{*}$ & 0.0 \\
+educational framing & assert. & 0.0 & 1.0 & 0.0 & 3.5 & 0.7 & 0.0 & \textbf{12.3}$^{*}$ & 0.3 \\
+refusal-then-comply & assert. & 0.0 & \textbf{19.9}$^{*}$ & 1.7 & 3.5 & 0.7 & 0.4 & \textbf{8.3}$^{*}$ & 0.3 \\
+\midrule
+\multicolumn{10}{l}{\emph{Harm-inventing wrappers (applied to refusals)}} \\[1pt]
+lecture suffix & tone & 0.0 & 0.4 & 2.3 & 0.4 & \textbf{0.0}$^{*}$ & 1.8 & 1.1 & 1.2 \\
+harm-adjacent preamble & assert. & 0.0 & 0.8 & 1.5 & 1.1 & 0.4 & 1.8 & 0.4 & 0.4 \\
+pseudo-compliance frame & assert. & \textbf{100.0}$^{*}$ & 1.9 & 1.1 & 1.8 & 2.3 & 0.7 & 0.0 & 0.8 \\
+\bottomrule
+\end{tabular}

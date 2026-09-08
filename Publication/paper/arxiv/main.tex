@@ -272,16 +272,21 @@ Guard~4} (\texttt{llamaguard\_or}) and OpenAI's \textbf{gpt-oss-safeguard-20b}
 completions (300 unsafe, 300 refusal) across GPT-3.5, GPT-4, Vicuna-13B, and Llama-2-7B, spanning
 ten harm categories.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \small
-\caption{Any-flip rate (\%) per judge $\times$ wrapper: of the responses the judge
-scored correctly in original form, the share whose verdict changes (in either direction) once
-the wrapper is added. $^{*}$ = significant under the exact McNemar paired test after Holm
-correction; ``--'' = that wrapper's response direction not covered for that judge.}
+\setlength{\tabcolsep}{3.5pt}
+\input{flip_rates_wide.tex}
+\caption{Any-flip rate (\%) per wrapper $\times$ judge: of the responses a judge scored
+correctly in original form, the share whose verdict changes once the wrapper is added, grouped
+by attack direction. \emph{Stratum}: tone = tone-only (pure commentary), assert.\ =
+assertion-adding (introduces a new contestable statement). \emph{Judges}: Keyword = rule-based
+baseline; GPT-4o-m / StrongR = GPT-4o-mini under the generic vs.\ StrongREJECT-style rubric;
+LG-4 = Llama Guard~4; SG-20b = gpt-oss-safeguard-20b. Bold$^{*}$ = significant under the exact
+McNemar paired test after Holm correction; significant \textbf{0.0}$^{*}$ cells are
+\emph{protective} effects (the wrapper makes that judge strictly more conservative).}
 \label{tab:flip}
-\resizebox{\columnwidth}{!}{\input{flip_rates.tex}}
-\end{table}
+\end{table*}
 
 \paragraph{H1: judges are gameable above the noise floor, but how much is judge-specific.} The
 sharpest dangerous flip is on GPT-4o-mini: \texttt{refusal\_then\_comply}---a token refusal
