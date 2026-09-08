@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Chao et~al.(2024)Chao, Debenedetti, Robey, Andriushchenko, Croce,
@@ -40,6 +40,14 @@ Rajarshi Haldar and Julia Hockenmaier. 2025.
   Self-inconsistency in {LLM}-as-a-judge frameworks}.
 \newblock In \emph{Findings of EMNLP}.
 
+\bibitem[{Han et~al.(2024)Han, Rao, Ettinger, Jiang, Lin, Lambert, Choi, and
+  Dziri}]{wildguard2024}
+Seungju Han, Kavel Rao, Allyson Ettinger, Liwei Jiang, Bill~Yuchen Lin, Nathan
+  Lambert, Yejin Choi, and Nouha Dziri. 2024.
+\newblock \href {https://arxiv.org/abs/2406.18495} {{WildGuard}: Open one-stop
+  moderation tools for safety risks, jailbreaks, and refusals of {LLMs}}.
+\newblock In \emph{NeurIPS Datasets and Benchmarks Track}.
+
 \bibitem[{Huang et~al.(2026{\natexlab{a}})Huang, Zhang, Wu, Li, Zhang, Rong,
   Yao, Zhang, and Jia}]{jailmeter2026}
 Qingjia Huang, Jingyu Zhang, Jianguo Wu, Yakai Li, Weijuan Zhang, Yankai Rong,
@@ -66,6 +74,15 @@ Shiqi Huang, Jiani He, Dingyan Shang, Yihua Xu, Jize Li, Yan Lyu, and
 \newblock \href {https://arxiv.org/abs/2608.11154} {{DACRI}: Decision-aware
   causal intervention ranking for critical supply chains}.
 \newblock \emph{Preprint}, arXiv:2608.11154.
+
+\bibitem[{Inan et~al.(2023)Inan, Upasani, Chi, Rungta, Iyer, Mao, Tontchev, Hu,
+  Fuller, Testuggine, and Khabsa}]{llamaguard}
+Hakan Inan, Kartikeya Upasani, Jianfeng Chi, Rashi Rungta, Krithika Iyer,
+  Yuning Mao, Michael Tontchev, Qing Hu, Brian Fuller, Davide Testuggine, and
+  Madian Khabsa. 2023.
+\newblock \href {https://arxiv.org/abs/2312.06674} {Llama guard: {LLM}-based
+  input-output safeguard for human-{AI} conversations}.
+\newblock \emph{Preprint}, arXiv:2312.06674.
 
 \bibitem[{Jiang et~al.(2026{\natexlab{a}})Jiang, Yang, Li, Liu, Yu, and
   Liu}]{jiang2026chaincaps}
@@ -119,6 +136,24 @@ Pin Qian, Su~Wang, Chong Peng, Junxian You, Lifei Liu, Haoran Yu, Yihang Chen,
 \newblock \emph{Preprint}, arXiv:2607.24010.
 \newblock KDD 2026 Workshop on Evaluation and Trustworthiness of Agentic AI.
 
+\bibitem[{Shi et~al.(2024)Shi, Yuan, Liu, Huang, Zhou, Sun, and
+  Gong}]{judgedeceiver2024}
+Jiawen Shi, Zenghui Yuan, Yinuo Liu, Yue Huang, Pan Zhou, Lichao Sun, and
+  Neil~Zhenqiang Gong. 2024.
+\newblock \href {https://doi.org/10.1145/3658644.3690291} {Optimization-based
+  prompt injection attack to {LLM}-as-a-judge}.
+\newblock In \emph{ACM SIGSAC Conference on Computer and Communications
+  Security (CCS)}.
+
+\bibitem[{Souly et~al.(2024)Souly, Lu, Bowen, Trinh, Hsieh, Pandey, Abbeel,
+  Svegliato, Emmons, Watkins, and Toyer}]{strongreject}
+Alexandra Souly, Qingyuan Lu, Dillon Bowen, Tu~Trinh, Elvis Hsieh, Sana Pandey,
+  Pieter Abbeel, Justin Svegliato, Scott Emmons, Olivia Watkins, and Sam Toyer.
+  2024.
+\newblock \href {https://arxiv.org/abs/2402.10260} {A {StrongREJECT} for empty
+  jailbreaks}.
+\newblock \emph{Preprint}, arXiv:2402.10260.
+
 \bibitem[{Su et~al.(2026{\natexlab{a}})Su, Peng, Tian, Liu, Zhao, Zhu, Zhang,
   and Zeng}]{su2026agenticsql}
 Yiyun Su, Zujun Peng, Yu~Tian, Yuting Liu, Changruo Zhao, Huiying Zhu, Luyan
@@ -145,6 +180,14 @@ Yu~Tian, Zhongheng Yang, Chenshi Liu, Yiyun Su, Ziwei Hong, Zexi Gong, and
   brain lesion segmentation}.
 \newblock In \emph{2025 IEEE 6th International Conference on Computer, Big
   Data, Artificial Intelligence (ICCBD+AI)}, pages 1--5. IEEE.
+
+\bibitem[{Wang et~al.(2023)Wang, Li, Chen, Cai, Zhu, Lin, Cao, Liu, Liu, and
+  Sui}]{faireval2023}
+Peiyi Wang, Lei Li, Liang Chen, Zefan Cai, Dawei Zhu, Binghuai Lin, Yunbo Cao,
+  Qi~Liu, Tianyu Liu, and Zhifang Sui. 2023.
+\newblock \href {https://arxiv.org/abs/2305.17926} {Large language models are
+  not fair evaluators}.
+\newblock \emph{Preprint}, arXiv:2305.17926.
 
 \bibitem[{Wang et~al.(2025)Wang, Lou, Tang, Chen, Zhao, Zhang, Song, and
   He}]{lrmbias2025}
@@ -178,6 +221,12 @@ Hao Wu, Hui Li, and Yiyun Su. 2025.
 \newblock In \emph{2025 IEEE International Conference on Bioinformatics and
   Biomedicine (BIBM)}, pages 4275--4278. IEEE.
 
+\bibitem[{Wu and Aji(2023)}]{wuaji2023style}
+Minghao Wu and Alham~Fikri Aji. 2023.
+\newblock \href {https://arxiv.org/abs/2307.03025} {Style over substance:
+  Evaluation biases for large language models}.
+\newblock \emph{Preprint}, arXiv:2307.03025.
+
 \bibitem[{Xiang et~al.(2026)Xiang, Zhang, Zhang, and Xu}]{xiang2026crossmodel}
 Zuodong Xiang, Yike Zhang, YueMing Zhang, and Hailu Xu. 2026.
 \newblock \href {https://arxiv.org/abs/2607.21656} {Cross-model {LLM} code
@@ -193,6 +242,16 @@ Haoran Yu, Lifei Liu, Xiaochong Jiang, Yuwen Jia, Su~Wang, Pin Qian, and Yihang
   Rising approval and declining scrutiny in human review of {AI} agent code}.
 \newblock \emph{Preprint}, arXiv:2606.22721.
 \newblock KDD 2026 Workshop on Agentic Software Engineering (SE 3.0).
+
+\bibitem[{Zeng et~al.(2024)Zeng, Liu, Mullins, Peran, Fernandez, Harkous,
+  Narasimhan, Proud, Kumar, Radharapu, Sturman, and
+  Wahltinez}]{shieldgemma2024}
+Wenjun Zeng, Yuchi Liu, Ryan Mullins, Ludovic Peran, Joe Fernandez, Hamza
+  Harkous, Karthik Narasimhan, Drew Proud, Piyush Kumar, Bhaktipriya Radharapu,
+  Olivia Sturman, and Oscar Wahltinez. 2024.
+\newblock \href {https://arxiv.org/abs/2407.21772} {{ShieldGemma}: Generative
+  {AI} content moderation based on {Gemma}}.
+\newblock \emph{Preprint}, arXiv:2407.21772.
 
 \bibitem[{Zhang et~al.(2026{\natexlab{a}})Zhang, Xiang, and
   Xu}]{zhang2026performance}
@@ -210,6 +269,15 @@ Yuan Zhang, Jiajun He, Lu~Chang, Yuanzhe Zhang, Quan Zhou, and Shiqi Huang.
   Privacy-aware recommendation with noisy {LLM}-derived signals}.
 \newblock In \emph{2026 10th International Conference on Electronic Information
   Technology and Computer Engineering (EITCE)}, pages 1161--1167. IEEE.
+
+\bibitem[{Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li,
+  Li, Xing, Zhang, Gonzalez, and Stoica}]{mtbench2023}
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao
+  Zhuang, Zi~Lin, Zhuohan Li, Dacheng Li, Eric~P. Xing, Hao Zhang, Joseph~E.
+  Gonzalez, and Ion Stoica. 2023.
+\newblock \href {https://arxiv.org/abs/2306.05685} {Judging {LLM}-as-a-judge
+  with {MT-Bench} and {Chatbot Arena}}.
+\newblock In \emph{NeurIPS Datasets and Benchmarks Track}.
 
 \bibitem[{Zheng et~al.(2025)Zheng, Pang, Du, Liu, Jiang, and
   Lin}]{cheating2025}

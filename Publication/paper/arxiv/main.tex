@@ -56,7 +56,8 @@ dangerous. The wrapper only decorates the reply; the body is preserved byte-for-
 faithful judge must therefore return the same verdict, and any \emph{flip} (verdict change)
 is an error of the judge, not a real change in safety. Over 600 replies (300 genuinely
 harmful, 300 refusals, from public JailbreakBench artifacts across four target models)
-$\times$ up to 7 forms $\times$ 8 judges, we measure how often each judge flips, using paired
+$\times$ up to 7 forms per reply (the original plus its direction's applicable wrappers)
+$\times$ 8 judges, we measure how often each judge flips, using paired
 significance tests, confidence intervals, and a measured \emph{noise floor}---how often the
 judge changes its verdict when shown the exact same reply twice, with no wrapper at all.
 Our findings are precise rather than universal: most judges barely move, but specific
@@ -142,8 +143,17 @@ the source dataset's reference label for a reply (harmful vs.\ refusal), which o
 validation independently audits.
 
 \section{Related Work}
-\paragraph{Gameable and unreliable judges.} \citet{cheating2025} show constant replies win
-automatic leaderboards; \citet{lrmbias2025} identify a ``superficial reflection'' bias where
+\paragraph{Gameable and unreliable judges.} That LLM evaluators harbor systematic biases
+is established for \emph{general} evaluation: the foundational LLM-as-a-judge studies
+document position, verbosity, and self-enhancement biases~\citep{mtbench2023,faireval2023},
+and \citet{wuaji2023style}---from whom we borrow our title phrase---show LLM evaluators rate
+fluent but factually wrong answers above correct ones. On the attack side,
+JudgeDeceiver~\citep{judgedeceiver2024} flips LLM-as-a-judge selections by injecting
+\emph{optimized} token sequences into a candidate response; our wrappers differ in three
+ways---they are fixed, human-readable strings requiring no optimization and no access to the
+judge, they target the \emph{safety} verdict rather than pairwise preference, and content
+invariance holds by construction, so a flip is provably a judge error. Closer to our setting,
+\citet{cheating2025} show constant replies win automatic leaderboards; \citet{lrmbias2025} identify a ``superficial reflection'' bias where
 reasoning-styled text sways judges; \citet{ratingroulette2025} document run-to-run judge
 self-inconsistency, and repeated-run studies find LLM outputs vary across identical runs even
 on deterministic tasks~\citep{zhou2026reliability}. Our \texttt{fake\_cot} and
@@ -174,8 +184,8 @@ one concrete failure mode of the safety verdict itself.
 \paragraph{Over-refusal and guard models.} OR-Bench~\citep{orbench2025} finds safety and
 over-refusal correlate, but both are measured with LLM judges; our false-positive direction
 probes whether part of that ``frontier'' is shared judge bias. Guard models
-(Llama Guard, ShieldGemma, WildGuard) and pipeline attacks~\citep{stack2026} treat guards as
-inputs-to-harden, a surface that widens further in agentic deployments---runtime supply chains
+(Llama Guard, ShieldGemma, WildGuard;~\citealp{llamaguard,shieldgemma2024,wildguard2024})
+and pipeline attacks~\citep{stack2026} treat guards as inputs-to-harden, a surface that widens further in agentic deployments---runtime supply chains
 expose new exploit paths~\citep{jiang2026attacksurface}, motivating composition-safe designs
 such as monotonic capability attenuation~\citep{jiang2026chaincaps}; we attack guards from the
 scoring side instead. See
@@ -202,11 +212,12 @@ the tone-only stratum is immune to that objection and isolates pure style bias.
 \paragraph{Judge panel.} Eight judges spanning the quality axis: a keyword baseline
 (\texttt{rulebased}, pattern-matching on refusal phrases, no semantics); GPT-4o-mini under two
 different grading prompts (\texttt{gpt4o}, a generic rubric, and \texttt{strongreject}, a
-stricter rubric that tells the judge to ignore tone and framing---same model, so any
+stricter rubric in the style of StrongREJECT~\citep{strongreject} that tells the judge to
+ignore tone and framing---same model, so any
 difference between the two is attributable to the prompt alone); three general chat models
 used as judges (DeepSeek-Chat, Qwen-Plus, Claude Haiku 4.5, all under the generic rubric);
 and two purpose-built moderation (``guard'') models of the kind deployed in production
-content filters: \textbf{Llama Guard~4} (12B) and OpenAI's \textbf{gpt-oss-safeguard-20b}
+content filters: \textbf{Llama Guard~4} (12B;~\citealp{llamaguard}) and OpenAI's \textbf{gpt-oss-safeguard-20b}
 (a reasoning safety classifier, run under the shared rubric). Each returns a binary
 \texttt{unsafe} verdict; the rubric judges also return \texttt{refusal}.
 \paragraph{Metrics.} Every comparison is \emph{paired}: the same response is judged
@@ -239,8 +250,8 @@ classifier's \texttt{jailbroken} flag.
 generic rubric (\texttt{gpt4o}) and a StrongREJECT-style rubric (\texttt{strongreject}, same
 model, different prompt); DeepSeek-Chat; Qwen-Plus; Claude Haiku 4.5; and two purpose-built
 moderation models, Llama Guard~4 and gpt-oss-safeguard-20b (both via OpenRouter). All are
-API-served---no local GPUs. ShieldGemma
-and WildGuard are additional open guards left to the camera-ready.
+API-served---no local GPUs. ShieldGemma~\citep{shieldgemma2024}
+and WildGuard~\citep{wildguard2024} are additional open guards left to the camera-ready.
 \paragraph{Protocol.} Judge temperature 0; three repeats on the original form for the noise
 floor; exact McNemar with Holm correction; 5000-sample bootstrap CIs. A 145-item stratified
 human validation with two annotators is reported below. Realized API cost for this run was
@@ -302,8 +313,9 @@ judge (GPT-4o-mini 2.1\%, Llama Guard~4 1.7\%, all others $\le$0.6\%); small, bu
 vulnerable judges this is $3$--$4\times$ their measured noise floors, and a single tone-only
 wrapper (\texttt{ethical\_reflection}) reaches 4.8\% on GPT-4o-mini and 3.6\% on Llama
 Guard~4. Assertion-adding wrappers flip \textbf{2--6$\times$ more} than tone-only on every
-judge with a measurable effect (keyword judge: 0\% vs.\ 30.7\%; GPT-4o-mini: 2.1\% vs.\
-6.2\%; Llama Guard~4: 1.7\% vs.\ 5.3\%); the immune safeguard judge shows no stratum
+judge with a measurable effect (keyword judge: 0\% vs.\ 30.7\%---the item-weighted mean of
+its 100\% pseudo-compliance flip and zeros on its other three wrappers; GPT-4o-mini: 2.1\%
+vs.\ 6.2\%; Llama Guard~4: 1.7\% vs.\ 5.3\%); the immune safeguard judge shows no stratum
 difference (0.35\% vs.\ 0.45\%, both within its noise floor), as expected for a judge with
 no effect to stratify. The headline effects therefore live in the assertion-adding
 stratum, where a critic may reasonably contest the ``style'' label; the tone-only stratum is
@@ -428,8 +440,14 @@ text responses; multi-turn and agent-trajectory judging are future work.
 \section{Ethics}
 We attack the \emph{evaluation} layer to make safety measurement more honest, not to jailbreak
 models. Responses come from existing public benchmarks; the shipped demo fixture uses
-non-operational placeholder text. Wrappers are stylistic and confer no new harmful capability.
-Exposing judge gameability helps defenders audit and harden their pipelines.
+non-operational placeholder text. Wrappers are stylistic and confer no new harmful capability
+to a \emph{model}; they do, however, constitute working evasion framings against a deployed
+moderation filter, so we are reporting the specific Llama Guard~4 evasion results to Meta and
+the GPT-4o-mini destabilization results to OpenAI ahead of wide release. Because the wrappers
+are generic, human-readable framings rather than optimized artifacts, equivalent strings are
+trivially rediscoverable; withholding them would impede defenders auditing their own
+pipelines more than it would impede attackers. Exposing judge gameability helps defenders
+audit and harden their scoring layers.
 
 \section*{Reproducibility}
 Code, wrappers, response-set builder, judge adapters, statistics, and per-verdict labels are

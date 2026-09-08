@@ -1,0 +1,21 @@
+{
+  "search_queries": [
+    "Style Over Substance evaluation biases large language models",
+    "optimization prompt injection attack LLM-as-a-judge JudgeDeceiver",
+    "Judging LLM-as-a-judge MT-Bench chatbot arena (rate-limited; known from literature)",
+    "large language models are not fair evaluators positional bias (rate-limited; known from literature)"
+  ],
+  "results": [
+    {"query": "style over substance", "papers": [{"title": "Style Over Substance: Evaluation Biases for Large Language Models", "authors": "Minghao Wu, Alham Fikri Aji", "year": 2023, "venue": "COLING", "citations": 80, "arxiv": "2307.03025", "relevance_reason": "Same title phrase; establishes LLM-evaluator style-over-substance bias in general evaluation; must be cited and differentiated"}]},
+    {"query": "judge prompt injection", "papers": [{"title": "Optimization-based Prompt Injection Attack to LLM-as-a-Judge", "authors": "Jiawen Shi et al.", "year": 2024, "venue": "ACM CCS", "citations": 216, "doi": "10.1145/3658644.3690291", "relevance_reason": "Closest attack-on-judge prior work (response-side manipulation of the judge); differentiate optimized-token vs human-readable zero-cost wrappers"}]},
+    {"query": "foundational judge bias (from reviewer knowledge)", "papers": [
+      {"title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena", "authors": "Lianmin Zheng et al.", "year": 2023, "venue": "NeurIPS Datasets and Benchmarks", "relevance_reason": "Canonical LLM-judge reference; position/verbosity/self-enhancement biases"},
+      {"title": "Large Language Models are not Fair Evaluators", "authors": "Peiyi Wang et al.", "year": 2023, "venue": "ACL 2024", "relevance_reason": "Positional bias in LLM judges"},
+      {"title": "Llama Guard: LLM-based Input-Output Safeguard", "authors": "Hakan Inan et al.", "year": 2023, "relevance_reason": "The attacked system; bib entry exists, never cited"},
+      {"title": "A StrongREJECT for Empty Jailbreaks", "authors": "Alexandra Souly et al.", "year": 2024, "relevance_reason": "Rubric named throughout; bib entry exists, never cited"},
+      {"title": "HarmBench", "authors": "Mantas Mazeika et al.", "year": 2024, "relevance_reason": "Named in repo/related context; bib entry exists, never cited"},
+      {"title": "ShieldGemma", "authors": "Wenjun Zeng et al.", "year": 2024, "relevance_reason": "Named in text (future work), uncited"},
+      {"title": "WildGuard", "authors": "Seungju Han et al.", "year": 2024, "relevance_reason": "Named in text (future work), uncited"}
+    ]}
+  ]
+}

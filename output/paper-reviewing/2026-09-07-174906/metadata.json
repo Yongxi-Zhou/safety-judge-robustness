@@ -1,0 +1,11 @@
+{
+  "paper_title": "Style Over Substance: Content-Invariant Wrappers Flip LLM Safety-Judge Verdicts",
+  "paper_path": "Publication/paper/arxiv/main.pdf",
+  "authors": "Yongxi Zhou (co-authors TBD)",
+  "review_date": "2026-09-08T00:49:06Z",
+  "conference_format": "generic",
+  "severity": "standard",
+  "overall_score": "7/10",
+  "recommendation": "Accept (weak accept at top venue)",
+  "reviewer_notes": "Reviewer has project-internal knowledge; calibrated to external-reviewer visibility. Key new findings this pass: title collision with Wu & Aji 2023; attacked systems (Llama Guard, StrongREJECT, HarmBench, ShieldGemma, WildGuard) named but uncited; JudgeDeceiver line missing; dual-use disclosure gap."
+}
