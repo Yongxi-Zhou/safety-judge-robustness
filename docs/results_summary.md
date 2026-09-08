@@ -76,8 +76,12 @@ Re-scored wrapped forms 3x on the headline GPT-4o-mini cells (`src/wrapped_noise
   3 cells — flips essentially fully deterministic. edu_framing 11.9% majority-of-3 flip and
   11.9% persistent (vs 12.3% single); refusal_then_comply 8.3%/7.9%; ethical_reflection
   3.6%/3.2%. The deployed guard reproducibly waves decorated harm through.
-- 8th judge running: `safeguard_or` = openai/gpt-oss-safeguard-20b via OpenRouter under the
-  shared rubric (max_tokens=4000, reasoning model) — a second deployed-guard-tier judge.
+- **8th judge COMPLETE (2026-09-07): `safeguard_or` = openai/gpt-oss-safeguard-20b** (OpenRouter,
+  shared rubric, max_tokens=4000, 4500 verdicts incl. 3x original repeats, 0 errors, ~15 min at
+  concurrency 20). Result: **immune** — every wrapper ≤1.2%, below its own 1.5% noise floor;
+  tone/assert strata indistinguishable (0.35%/0.45%). The two deployed guards sit at opposite
+  ends: LlamaGuard4 leaks 12.3% on edu_framing, safeguard-20b leaks nothing. Rank bootstrap:
+  safeguard base-top1 stable 97.9%. Panel is now 8 judges; paper updated throughout.
 
 ## Remaining gaps
 - Optional: frontier-tier rubric judges; ShieldGemma/WildGuard; a response set with wider

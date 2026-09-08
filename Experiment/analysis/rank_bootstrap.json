@@ -201,5 +201,34 @@
    }
   },
   "p_base_top1_stable": 0.848
+ },
+ "safeguard_or": {
+  "point_base_order": [
+   "llama-2-7b-chat-hf",
+   "gpt-3.5-turbo-1106",
+   "gpt-4-0125-preview",
+   "vicuna-13b-v1.5"
+  ],
+  "wrappers": {
+   "disclaimer_prefix": {
+    "p_rev": 0.0155
+   },
+   "educational_framing": {
+    "p_rev": 0.6735
+   },
+   "ethical_reflection": {
+    "p_rev": 0.6705
+   },
+   "fake_cot": {
+    "p_rev": 0.0295
+   },
+   "moralizing_suffix": {
+    "p_rev": 0.1165
+   },
+   "refusal_then_comply": {
+    "p_rev": 0.6705
+   }
+  },
+  "p_base_top1_stable": 0.979
  }
 }

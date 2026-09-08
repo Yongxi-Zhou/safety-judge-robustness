@@ -24,7 +24,7 @@ from collections import defaultdict
 
 from .judges import load_jsonl
 
-JUDGES = ["rulebased", "gpt4o", "strongreject", "deepseek", "qwen", "claude", "llamaguard_or"]
+JUDGES = ["rulebased", "gpt4o", "strongreject", "deepseek", "qwen", "claude", "llamaguard_or", "safeguard_or"]
 B = 2000
 SEED = 7
 

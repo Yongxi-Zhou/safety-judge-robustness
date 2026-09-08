@@ -361,7 +361,7 @@ def get_judge(name: str) -> Judge:
 
 
 ALL_JUDGES = ["rulebased", "gpt4o", "strongreject", "gpt4o_full", "claude", "deepseek", "qwen",
-              "llamaguard_or", "llamaguard", "shieldgemma", "wildguard"]
+              "llamaguard_or", "safeguard_or", "llamaguard", "shieldgemma", "wildguard"]
 
 
 def load_jsonl(path: str) -> List[Dict]:
