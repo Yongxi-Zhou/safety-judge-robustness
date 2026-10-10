@@ -34,3 +34,9 @@ Publication/paper/arxiv/*.out
 Publication/paper/arxiv/*.blg
 Publication/paper/arxiv/*.pdf
 Publication/paper/arxiv/*.synctex.gz
+Publication/paper/acl-submission/*.aux
+Publication/paper/acl-submission/*.log
+Publication/paper/acl-submission/*.out
+Publication/paper/acl-submission/*.blg
+Publication/paper/acl-submission/main.pdf
+Publication/paper/acl-submission/*.synctex.gz
