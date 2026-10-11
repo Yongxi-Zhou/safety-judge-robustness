@@ -1,0 +1,5186 @@
+{
+ "rulebased|disclaimer_prefix": {
+  "b": 0,
+  "c": 0,
+  "p": 1.0,
+  "base": 180,
+  "flip_rate": 0,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    24
+   ],
+   "Expert advice": [
+    0,
+    13
+   ],
+   "Privacy": [
+    0,
+    25
+   ],
+   "Sexual/Adult content": [
+    0,
+    17
+   ],
+   "Disinformation": [
+    0,
+    16
+   ],
+   "Fraud/Deception": [
+    0,
+    25
+   ],
+   "Economic harm": [
+    0,
+    23
+   ],
+   "Physical harm": [
+    0,
+    19
+   ],
+   "Malware/Hacking": [
+    0,
+    16
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    19
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    11
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "rulebased|educational_framing": {
+  "b": 0,
+  "c": 0,
+  "p": 1.0,
+  "base": 180,
+  "flip_rate": 0,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    24
+   ],
+   "Expert advice": [
+    0,
+    13
+   ],
+   "Privacy": [
+    0,
+    25
+   ],
+   "Sexual/Adult content": [
+    0,
+    17
+   ],
+   "Disinformation": [
+    0,
+    16
+   ],
+   "Fraud/Deception": [
+    0,
+    25
+   ],
+   "Economic harm": [
+    0,
+    23
+   ],
+   "Physical harm": [
+    0,
+    19
+   ],
+   "Malware/Hacking": [
+    0,
+    16
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    19
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    11
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "rulebased|ethical_reflection": {
+  "b": 0,
+  "c": 0,
+  "p": 1.0,
+  "base": 180,
+  "flip_rate": 0,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    24
+   ],
+   "Expert advice": [
+    0,
+    13
+   ],
+   "Privacy": [
+    0,
+    25
+   ],
+   "Sexual/Adult content": [
+    0,
+    17
+   ],
+   "Disinformation": [
+    0,
+    16
+   ],
+   "Fraud/Deception": [
+    0,
+    25
+   ],
+   "Economic harm": [
+    0,
+    23
+   ],
+   "Physical harm": [
+    0,
+    19
+   ],
+   "Malware/Hacking": [
+    0,
+    16
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    19
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    11
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "rulebased|fake_cot": {
+  "b": 0,
+  "c": 0,
+  "p": 1.0,
+  "base": 180,
+  "flip_rate": 0,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    24
+   ],
+   "Expert advice": [
+    0,
+    13
+   ],
+   "Privacy": [
+    0,
+    25
+   ],
+   "Sexual/Adult content": [
+    0,
+    17
+   ],
+   "Disinformation": [
+    0,
+    16
+   ],
+   "Fraud/Deception": [
+    0,
+    25
+   ],
+   "Economic harm": [
+    0,
+    23
+   ],
+   "Physical harm": [
+    0,
+    19
+   ],
+   "Malware/Hacking": [
+    0,
+    16
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    19
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    11
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "rulebased|harm_adjacent_preamble": {
+  "b": 0,
+  "c": 0,
+  "p": 1.0,
+  "base": 287,
+  "flip_rate": 0,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    44
+   ],
+   "Disinformation": [
+    0,
+    35
+   ],
+   "Economic harm": [
+    0,
+    39
+   ],
+   "Harassment/Discrimination": [
+    0,
+    4
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    8
+   ],
+   "Fraud/Deception": [
+    0,
+    33
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    46
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "rulebased|lecture_suffix": {
+  "b": 0,
+  "c": 0,
+  "p": 1.0,
+  "base": 287,
+  "flip_rate": 0,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    44
+   ],
+   "Disinformation": [
+    0,
+    35
+   ],
+   "Economic harm": [
+    0,
+    39
+   ],
+   "Harassment/Discrimination": [
+    0,
+    4
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    8
+   ],
+   "Fraud/Deception": [
+    0,
+    33
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    46
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "rulebased|moralizing_suffix": {
+  "b": 0,
+  "c": 0,
+  "p": 1.0,
+  "base": 180,
+  "flip_rate": 0,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    24
+   ],
+   "Expert advice": [
+    0,
+    13
+   ],
+   "Privacy": [
+    0,
+    25
+   ],
+   "Sexual/Adult content": [
+    0,
+    17
+   ],
+   "Disinformation": [
+    0,
+    16
+   ],
+   "Fraud/Deception": [
+    0,
+    25
+   ],
+   "Economic harm": [
+    0,
+    23
+   ],
+   "Physical harm": [
+    0,
+    19
+   ],
+   "Malware/Hacking": [
+    0,
+    16
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    19
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    11
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "rulebased|pseudo_comply_frame": {
+  "b": 287,
+  "c": 0,
+  "p": 8.043058733543795e-87,
+  "base": 287,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    31,
+    31
+   ],
+   "Expert advice": [
+    44,
+    44
+   ],
+   "Disinformation": [
+    35,
+    35
+   ],
+   "Economic harm": [
+    39,
+    39
+   ],
+   "Harassment/Discrimination": [
+    4,
+    4
+   ],
+   "Privacy": [
+    30,
+    30
+   ],
+   "Sexual/Adult content": [
+    33,
+    33
+   ],
+   "Physical harm": [
+    30,
+    30
+   ],
+   "Malware/Hacking": [
+    8,
+    8
+   ],
+   "Fraud/Deception": [
+    33,
+    33
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    81,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    80,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    80,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    46,
+    46
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "rulebased|refusal_then_comply": {
+  "b": 0,
+  "c": 0,
+  "p": 1.0,
+  "base": 180,
+  "flip_rate": 0,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    24
+   ],
+   "Expert advice": [
+    0,
+    13
+   ],
+   "Privacy": [
+    0,
+    25
+   ],
+   "Sexual/Adult content": [
+    0,
+    17
+   ],
+   "Disinformation": [
+    0,
+    16
+   ],
+   "Fraud/Deception": [
+    0,
+    25
+   ],
+   "Economic harm": [
+    0,
+    23
+   ],
+   "Physical harm": [
+    0,
+    19
+   ],
+   "Malware/Hacking": [
+    0,
+    16
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    19
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    11
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "gpt4o|disclaimer_prefix": {
+  "b": 7,
+  "c": 8,
+  "p": 1.0,
+  "base": 291,
+  "flip_rate": null,
+  "nb": 8,
+  "nc": 0,
+  "p_noise": 0.0078125,
+  "n_pair": 291,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    3,
+    34
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    2,
+    39
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    3,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    1,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    3,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    4,
+    70
+   ]
+  },
+  "p_noise_holm": 0.0546875
+ },
+ "gpt4o|educational_framing": {
+  "b": 5,
+  "c": 3,
+  "p": 0.7265625,
+  "base": 291,
+  "flip_rate": null,
+  "nb": 3,
+  "nc": 0,
+  "p_noise": 0.25,
+  "n_pair": 291,
+  "bycat": {
+   "Government decision-making": [
+    1,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    2,
+    34
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    39
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    1,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    2,
+    70
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "gpt4o|ethical_reflection": {
+  "b": 5,
+  "c": 14,
+  "p": 0.063568115234375,
+  "base": 291,
+  "flip_rate": null,
+  "nb": 14,
+  "nc": 0,
+  "p_noise": 0.0001220703125,
+  "n_pair": 291,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    1,
+    24
+   ],
+   "Privacy": [
+    2,
+    40
+   ],
+   "Sexual/Adult content": [
+    2,
+    34
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    1,
+    39
+   ],
+   "Economic harm": [
+    1,
+    33
+   ],
+   "Physical harm": [
+    7,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    2,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    2,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    3,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    7,
+    70
+   ]
+  },
+  "p_noise_holm": 0.0009765625
+ },
+ "gpt4o|fake_cot": {
+  "b": 7,
+  "c": 7,
+  "p": 1.0,
+  "base": 291,
+  "flip_rate": null,
+  "nb": 7,
+  "nc": 0,
+  "p_noise": 0.015625,
+  "n_pair": 291,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    1,
+    24
+   ],
+   "Privacy": [
+    1,
+    40
+   ],
+   "Sexual/Adult content": [
+    3,
+    34
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    2,
+    39
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    1,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    6,
+    70
+   ]
+  },
+  "p_noise_holm": 0.09375
+ },
+ "gpt4o|harm_adjacent_preamble": {
+  "b": 2,
+  "c": 3,
+  "p": 1.0,
+  "base": 261,
+  "flip_rate": null,
+  "nb": 2,
+  "nc": 1,
+  "p_noise": 1.0,
+  "n_pair": 261,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Harassment/Discrimination": [
+    0,
+    3
+   ],
+   "Economic harm": [
+    1,
+    35
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    1,
+    32
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    2,
+    20
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "gpt4o|lecture_suffix": {
+  "b": 1,
+  "c": 5,
+  "p": 0.21875,
+  "base": 261,
+  "flip_rate": null,
+  "nb": 1,
+  "nc": 1,
+  "p_noise": 1.0,
+  "n_pair": 261,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Harassment/Discrimination": [
+    0,
+    3
+   ],
+   "Economic harm": [
+    1,
+    35
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    32
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    20
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "gpt4o|moralizing_suffix": {
+  "b": 7,
+  "c": 0,
+  "p": 0.015625,
+  "base": 291,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 291,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    34
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    39
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    70
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "gpt4o|pseudo_comply_frame": {
+  "b": 5,
+  "c": 1,
+  "p": 0.21875,
+  "base": 261,
+  "flip_rate": null,
+  "nb": 4,
+  "nc": 0,
+  "p_noise": 0.125,
+  "n_pair": 261,
+  "bycat": {
+   "Government decision-making": [
+    1,
+    31
+   ],
+   "Expert advice": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Harassment/Discrimination": [
+    0,
+    3
+   ],
+   "Economic harm": [
+    1,
+    35
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    1,
+    32
+   ],
+   "Physical harm": [
+    1,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    1,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    5,
+    20
+   ]
+  },
+  "p_noise_holm": 0.625
+ },
+ "gpt4o|refusal_then_comply": {
+  "b": 2,
+  "c": 58,
+  "p": 3.1762786845135338e-15,
+  "base": 291,
+  "flip_rate": null,
+  "nb": 58,
+  "nc": 0,
+  "p_noise": 6.938893903907228e-18,
+  "n_pair": 291,
+  "bycat": {
+   "Government decision-making": [
+    2,
+    40
+   ],
+   "Expert advice": [
+    3,
+    24
+   ],
+   "Privacy": [
+    7,
+    40
+   ],
+   "Sexual/Adult content": [
+    15,
+    34
+   ],
+   "Disinformation": [
+    13,
+    28
+   ],
+   "Fraud/Deception": [
+    6,
+    39
+   ],
+   "Economic harm": [
+    2,
+    33
+   ],
+   "Physical harm": [
+    10,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    6,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    6,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    19,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    27,
+    70
+   ]
+  },
+  "p_noise_holm": 6.245004513516506e-17
+ },
+ "strongreject|disclaimer_prefix": {
+  "b": 1,
+  "c": 0,
+  "p": 1.0,
+  "base": 298,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    36
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    74
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "strongreject|educational_framing": {
+  "b": 2,
+  "c": 0,
+  "p": 0.5,
+  "base": 298,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    36
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    74
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "strongreject|ethical_reflection": {
+  "b": 2,
+  "c": 0,
+  "p": 0.5,
+  "base": 298,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    36
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    74
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "strongreject|fake_cot": {
+  "b": 2,
+  "c": 1,
+  "p": 1.0,
+  "base": 298,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    1,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    36
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    1,
+    74
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "strongreject|harm_adjacent_preamble": {
+  "b": 4,
+  "c": 12,
+  "p": 0.076812744140625,
+  "base": 262,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    40
+   ],
+   "Disinformation": [
+    0,
+    31
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    3,
+    31
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Harassment/Discrimination": [
+    0,
+    1
+   ],
+   "Fraud/Deception": [
+    1,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    5
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    1,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    2,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    21
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "strongreject|lecture_suffix": {
+  "b": 6,
+  "c": 0,
+  "p": 0.03125,
+  "base": 262,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    1,
+    31
+   ],
+   "Expert advice": [
+    3,
+    40
+   ],
+   "Disinformation": [
+    0,
+    31
+   ],
+   "Economic harm": [
+    1,
+    34
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    31
+   ],
+   "Physical harm": [
+    1,
+    29
+   ],
+   "Harassment/Discrimination": [
+    0,
+    1
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    5
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    6,
+    21
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "strongreject|moralizing_suffix": {
+  "b": 1,
+  "c": 0,
+  "p": 1.0,
+  "base": 298,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    36
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    74
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "strongreject|pseudo_comply_frame": {
+  "b": 3,
+  "c": 1,
+  "p": 0.625,
+  "base": 262,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    1,
+    31
+   ],
+   "Expert advice": [
+    0,
+    40
+   ],
+   "Disinformation": [
+    1,
+    31
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    31
+   ],
+   "Physical harm": [
+    1,
+    29
+   ],
+   "Harassment/Discrimination": [
+    0,
+    1
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    5
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    3,
+    21
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "strongreject|refusal_then_comply": {
+  "b": 0,
+  "c": 5,
+  "p": 0.0625,
+  "base": 298,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    2,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    1,
+    35
+   ],
+   "Disinformation": [
+    1,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    1,
+    34
+   ],
+   "Physical harm": [
+    0,
+    36
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    1,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    3,
+    74
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|disclaimer_prefix": {
+  "b": 4,
+  "c": 5,
+  "p": 1.0,
+  "base": 287,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    1,
+    39
+   ],
+   "Expert advice": [
+    2,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    32
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    1,
+    33
+   ],
+   "Physical harm": [
+    1,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    3,
+    71
+   ],
+   "gpt-4-0125-preview": [
+    1,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|educational_framing": {
+  "b": 2,
+  "c": 10,
+  "p": 0.03857421875,
+  "base": 287,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    2,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    1,
+    32
+   ],
+   "Disinformation": [
+    1,
+    28
+   ],
+   "Fraud/Deception": [
+    1,
+    40
+   ],
+   "Economic harm": [
+    2,
+    33
+   ],
+   "Physical harm": [
+    3,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    2,
+    71
+   ],
+   "gpt-4-0125-preview": [
+    2,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    1,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    5,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|ethical_reflection": {
+  "b": 5,
+  "c": 0,
+  "p": 0.0625,
+  "base": 287,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    32
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    71
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|fake_cot": {
+  "b": 8,
+  "c": 1,
+  "p": 0.0390625,
+  "base": 287,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    1,
+    32
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    71
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|harm_adjacent_preamble": {
+  "b": 3,
+  "c": 7,
+  "p": 0.34375,
+  "base": 270,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    2,
+    39
+   ],
+   "Disinformation": [
+    0,
+    33
+   ],
+   "Economic harm": [
+    1,
+    36
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    32
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ],
+   "Fraud/Deception": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    3,
+    29
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|lecture_suffix": {
+  "b": 1,
+  "c": 6,
+  "p": 0.125,
+  "base": 270,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    39
+   ],
+   "Disinformation": [
+    0,
+    33
+   ],
+   "Economic harm": [
+    0,
+    36
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    1,
+    32
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ],
+   "Fraud/Deception": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    29
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|moralizing_suffix": {
+  "b": 5,
+  "c": 0,
+  "p": 0.0625,
+  "base": 287,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    32
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    71
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|pseudo_comply_frame": {
+  "b": 5,
+  "c": 1,
+  "p": 0.21875,
+  "base": 270,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    1,
+    39
+   ],
+   "Disinformation": [
+    1,
+    33
+   ],
+   "Economic harm": [
+    0,
+    36
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    1,
+    32
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ],
+   "Fraud/Deception": [
+    1,
+    32
+   ],
+   "Malware/Hacking": [
+    1,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    5,
+    29
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "deepseek|refusal_then_comply": {
+  "b": 3,
+  "c": 10,
+  "p": 0.09228515625,
+  "base": 287,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    32
+   ],
+   "Disinformation": [
+    1,
+    28
+   ],
+   "Fraud/Deception": [
+    1,
+    40
+   ],
+   "Economic harm": [
+    3,
+    33
+   ],
+   "Physical harm": [
+    5,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    2,
+    71
+   ],
+   "gpt-4-0125-preview": [
+    2,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    2,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    4,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|disclaimer_prefix": {
+  "b": 3,
+  "c": 0,
+  "p": 0.25,
+  "base": 295,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    74
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|educational_framing": {
+  "b": 2,
+  "c": 2,
+  "p": 1.0,
+  "base": 295,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    2,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    1,
+    74
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|ethical_reflection": {
+  "b": 1,
+  "c": 8,
+  "p": 0.0390625,
+  "base": 295,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    1,
+    25
+   ],
+   "Privacy": [
+    1,
+    40
+   ],
+   "Sexual/Adult content": [
+    1,
+    33
+   ],
+   "Disinformation": [
+    3,
+    30
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    2,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    1,
+    74
+   ],
+   "gpt-4-0125-preview": [
+    1,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    6,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|fake_cot": {
+  "b": 4,
+  "c": 0,
+  "p": 0.125,
+  "base": 295,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    74
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|harm_adjacent_preamble": {
+  "b": 1,
+  "c": 5,
+  "p": 0.21875,
+  "base": 257,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    30
+   ],
+   "Expert advice": [
+    0,
+    35
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Disinformation": [
+    0,
+    31
+   ],
+   "Sexual/Adult content": [
+    0,
+    30
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ],
+   "Harassment/Discrimination": [
+    1,
+    2
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    16
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|lecture_suffix": {
+  "b": 0,
+  "c": 9,
+  "p": 0.00390625,
+  "base": 257,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    30
+   ],
+   "Expert advice": [
+    0,
+    35
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Disinformation": [
+    0,
+    31
+   ],
+   "Sexual/Adult content": [
+    0,
+    30
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    16
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|moralizing_suffix": {
+  "b": 2,
+  "c": 0,
+  "p": 0.5,
+  "base": 295,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    74
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|pseudo_comply_frame": {
+  "b": 6,
+  "c": 1,
+  "p": 0.125,
+  "base": 257,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    30
+   ],
+   "Expert advice": [
+    1,
+    35
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Disinformation": [
+    2,
+    31
+   ],
+   "Sexual/Adult content": [
+    0,
+    30
+   ],
+   "Physical harm": [
+    1,
+    29
+   ],
+   "Malware/Hacking": [
+    1,
+    6
+   ],
+   "Harassment/Discrimination": [
+    1,
+    2
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    6,
+    16
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "qwen|refusal_then_comply": {
+  "b": 4,
+  "c": 2,
+  "p": 0.6875,
+  "base": 295,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    25
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    1,
+    30
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    1,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    1,
+    74
+   ],
+   "gpt-4-0125-preview": [
+    1,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    72
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|disclaimer_prefix": {
+  "b": 10,
+  "c": 0,
+  "p": 0.001953125,
+  "base": 286,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    21
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    70
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    68
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|educational_framing": {
+  "b": 6,
+  "c": 0,
+  "p": 0.03125,
+  "base": 286,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    21
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    70
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    68
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|ethical_reflection": {
+  "b": 6,
+  "c": 0,
+  "p": 0.03125,
+  "base": 286,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    21
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    70
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    68
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|fake_cot": {
+  "b": 10,
+  "c": 0,
+  "p": 0.001953125,
+  "base": 286,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    21
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    70
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    68
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|harm_adjacent_preamble": {
+  "b": 5,
+  "c": 3,
+  "p": 0.7265625,
+  "base": 273,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    45
+   ],
+   "Disinformation": [
+    2,
+    32
+   ],
+   "Economic harm": [
+    2,
+    36
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    31
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Harassment/Discrimination": [
+    1,
+    3
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    5,
+    32
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|lecture_suffix": {
+  "b": 5,
+  "c": 5,
+  "p": 1.0,
+  "base": 273,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    3,
+    45
+   ],
+   "Disinformation": [
+    1,
+    32
+   ],
+   "Economic harm": [
+    1,
+    36
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    31
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Harassment/Discrimination": [
+    0,
+    3
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    5,
+    32
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|moralizing_suffix": {
+  "b": 5,
+  "c": 0,
+  "p": 0.0625,
+  "base": 286,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    21
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    0,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    70
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    68
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|pseudo_comply_frame": {
+  "b": 2,
+  "c": 3,
+  "p": 1.0,
+  "base": 273,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    45
+   ],
+   "Disinformation": [
+    0,
+    32
+   ],
+   "Economic harm": [
+    1,
+    36
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    31
+   ],
+   "Physical harm": [
+    0,
+    29
+   ],
+   "Harassment/Discrimination": [
+    1,
+    3
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    2,
+    32
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "claude|refusal_then_comply": {
+  "b": 7,
+  "c": 1,
+  "p": 0.0703125,
+  "base": 286,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    39
+   ],
+   "Expert advice": [
+    0,
+    21
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    33
+   ],
+   "Disinformation": [
+    1,
+    28
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Physical harm": [
+    0,
+    34
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    70
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    74
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    68
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    74
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|disclaimer_prefix": {
+  "b": 5,
+  "c": 6,
+  "p": 1.0,
+  "base": 277,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    23
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    5,
+    18
+   ],
+   "Fraud/Deception": [
+    0,
+    39
+   ],
+   "Economic harm": [
+    1,
+    33
+   ],
+   "Physical harm": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    15
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    1,
+    72
+   ],
+   "gpt-4-0125-preview": [
+    3,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    2,
+    65
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    69
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|educational_framing": {
+  "b": 1,
+  "c": 34,
+  "p": 2.0954757928848267e-09,
+  "base": 277,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    1,
+    40
+   ],
+   "Expert advice": [
+    3,
+    23
+   ],
+   "Privacy": [
+    14,
+    40
+   ],
+   "Sexual/Adult content": [
+    3,
+    35
+   ],
+   "Disinformation": [
+    6,
+    18
+   ],
+   "Fraud/Deception": [
+    1,
+    39
+   ],
+   "Economic harm": [
+    5,
+    33
+   ],
+   "Physical harm": [
+    1,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    15
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    8,
+    72
+   ],
+   "gpt-4-0125-preview": [
+    9,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    10,
+    65
+   ],
+   "vicuna-13b-v1.5": [
+    7,
+    69
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|ethical_reflection": {
+  "b": 1,
+  "c": 10,
+  "p": 0.01171875,
+  "base": 277,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    23
+   ],
+   "Privacy": [
+    1,
+    40
+   ],
+   "Sexual/Adult content": [
+    1,
+    35
+   ],
+   "Disinformation": [
+    5,
+    18
+   ],
+   "Fraud/Deception": [
+    0,
+    39
+   ],
+   "Economic harm": [
+    2,
+    33
+   ],
+   "Physical harm": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    1,
+    15
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    4,
+    72
+   ],
+   "gpt-4-0125-preview": [
+    6,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    65
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    69
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|fake_cot": {
+  "b": 4,
+  "c": 5,
+  "p": 1.0,
+  "base": 277,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    23
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    4,
+    18
+   ],
+   "Fraud/Deception": [
+    0,
+    39
+   ],
+   "Economic harm": [
+    1,
+    33
+   ],
+   "Physical harm": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    15
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    1,
+    72
+   ],
+   "gpt-4-0125-preview": [
+    3,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    1,
+    65
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    69
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|harm_adjacent_preamble": {
+  "b": 1,
+  "c": 7,
+  "p": 0.0703125,
+  "base": 270,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    30
+   ],
+   "Expert advice": [
+    0,
+    38
+   ],
+   "Disinformation": [
+    1,
+    37
+   ],
+   "Economic harm": [
+    0,
+    37
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    30
+   ],
+   "Physical harm": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    29
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|lecture_suffix": {
+  "b": 3,
+  "c": 3,
+  "p": 1.0,
+  "base": 270,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    30
+   ],
+   "Expert advice": [
+    1,
+    38
+   ],
+   "Disinformation": [
+    0,
+    37
+   ],
+   "Economic harm": [
+    1,
+    37
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    30
+   ],
+   "Physical harm": [
+    1,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    3,
+    29
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|moralizing_suffix": {
+  "b": 16,
+  "c": 0,
+  "p": 3.0517578125e-05,
+  "base": 277,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    23
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    18
+   ],
+   "Fraud/Deception": [
+    0,
+    39
+   ],
+   "Economic harm": [
+    0,
+    33
+   ],
+   "Physical harm": [
+    0,
+    32
+   ],
+   "Malware/Hacking": [
+    0,
+    15
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    72
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    65
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    69
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|pseudo_comply_frame": {
+  "b": 0,
+  "c": 6,
+  "p": 0.03125,
+  "base": 270,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    30
+   ],
+   "Expert advice": [
+    0,
+    38
+   ],
+   "Disinformation": [
+    0,
+    37
+   ],
+   "Economic harm": [
+    0,
+    37
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    30
+   ],
+   "Physical harm": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    29
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "llamaguard_or|refusal_then_comply": {
+  "b": 0,
+  "c": 23,
+  "p": 2.384185791015625e-07,
+  "base": 277,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 0,
+  "bycat": {
+   "Government decision-making": [
+    2,
+    40
+   ],
+   "Expert advice": [
+    2,
+    23
+   ],
+   "Privacy": [
+    4,
+    40
+   ],
+   "Sexual/Adult content": [
+    2,
+    35
+   ],
+   "Disinformation": [
+    6,
+    18
+   ],
+   "Fraud/Deception": [
+    1,
+    39
+   ],
+   "Economic harm": [
+    4,
+    33
+   ],
+   "Physical harm": [
+    1,
+    32
+   ],
+   "Malware/Hacking": [
+    1,
+    15
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    5,
+    72
+   ],
+   "gpt-4-0125-preview": [
+    8,
+    71
+   ],
+   "llama-2-7b-chat-hf": [
+    5,
+    65
+   ],
+   "vicuna-13b-v1.5": [
+    5,
+    69
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|disclaimer_prefix": {
+  "b": 0,
+  "c": 1,
+  "p": 1.0,
+  "base": 296,
+  "flip_rate": null,
+  "nb": 1,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 296,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    1,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    1,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|educational_framing": {
+  "b": 2,
+  "c": 1,
+  "p": 1.0,
+  "base": 296,
+  "flip_rate": null,
+  "nb": 1,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 296,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    1,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|ethical_reflection": {
+  "b": 2,
+  "c": 1,
+  "p": 1.0,
+  "base": 296,
+  "flip_rate": null,
+  "nb": 1,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 296,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    1,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|fake_cot": {
+  "b": 1,
+  "c": 0,
+  "p": 1.0,
+  "base": 296,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 296,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|harm_adjacent_preamble": {
+  "b": 1,
+  "c": 4,
+  "p": 0.375,
+  "base": 257,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 257,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    36
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    0,
+    31
+   ],
+   "Physical harm": [
+    1,
+    30
+   ],
+   "Harassment/Discrimination": [
+    0,
+    1
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    16
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|lecture_suffix": {
+  "b": 3,
+  "c": 4,
+  "p": 1.0,
+  "base": 257,
+  "flip_rate": null,
+  "nb": 2,
+  "nc": 0,
+  "p_noise": 0.5,
+  "n_pair": 257,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    36
+   ],
+   "Disinformation": [
+    1,
+    30
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    1,
+    31
+   ],
+   "Physical harm": [
+    1,
+    30
+   ],
+   "Harassment/Discrimination": [
+    0,
+    1
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    3,
+    16
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|moralizing_suffix": {
+  "b": 2,
+  "c": 0,
+  "p": 0.5,
+  "base": 296,
+  "flip_rate": null,
+  "nb": 0,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 296,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    0,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    0,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|pseudo_comply_frame": {
+  "b": 2,
+  "c": 2,
+  "p": 1.0,
+  "base": 257,
+  "flip_rate": null,
+  "nb": 1,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 257,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    31
+   ],
+   "Expert advice": [
+    0,
+    36
+   ],
+   "Disinformation": [
+    0,
+    30
+   ],
+   "Economic harm": [
+    0,
+    32
+   ],
+   "Privacy": [
+    0,
+    30
+   ],
+   "Sexual/Adult content": [
+    1,
+    31
+   ],
+   "Physical harm": [
+    1,
+    30
+   ],
+   "Harassment/Discrimination": [
+    0,
+    1
+   ],
+   "Fraud/Deception": [
+    0,
+    30
+   ],
+   "Malware/Hacking": [
+    0,
+    6
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    81
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    80
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    80
+   ],
+   "vicuna-13b-v1.5": [
+    2,
+    16
+   ]
+  },
+  "p_noise_holm": 1.0
+ },
+ "safeguard_or|refusal_then_comply": {
+  "b": 2,
+  "c": 1,
+  "p": 1.0,
+  "base": 296,
+  "flip_rate": null,
+  "nb": 1,
+  "nc": 0,
+  "p_noise": 1.0,
+  "n_pair": 296,
+  "bycat": {
+   "Government decision-making": [
+    0,
+    40
+   ],
+   "Expert advice": [
+    0,
+    24
+   ],
+   "Privacy": [
+    0,
+    40
+   ],
+   "Sexual/Adult content": [
+    0,
+    35
+   ],
+   "Disinformation": [
+    1,
+    29
+   ],
+   "Fraud/Deception": [
+    0,
+    40
+   ],
+   "Economic harm": [
+    0,
+    34
+   ],
+   "Physical harm": [
+    0,
+    35
+   ],
+   "Malware/Hacking": [
+    0,
+    17
+   ],
+   "Harassment/Discrimination": [
+    0,
+    2
+   ]
+  },
+  "bymod": {
+   "gpt-3.5-turbo-1106": [
+    0,
+    75
+   ],
+   "gpt-4-0125-preview": [
+    0,
+    75
+   ],
+   "llama-2-7b-chat-hf": [
+    0,
+    71
+   ],
+   "vicuna-13b-v1.5": [
+    1,
+    75
+   ]
+  },
+  "p_noise_holm": 1.0
+ }
+}

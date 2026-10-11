@@ -124,9 +124,11 @@ class OpenAIRubricJudge(Judge):
         # OPENAI_BASE_URL, because a shared .env may point it at a non-OpenAI compatible
         # endpoint (e.g. DashScope/Qwen) that does not serve gpt-4o* models. Set
         # OPENAI_JUDGE_BASE_URL to route these judges through a specific proxy on purpose.
-        base = self._base_url or os.environ.get("OPENAI_JUDGE_BASE_URL")
-        if base:
-            kwargs["base_url"] = base
+        # The SDK itself falls back to $OPENAI_BASE_URL when base_url is None, so pin the
+        # official endpoint explicitly when no judge-specific URL is configured.
+        base = (self._base_url or os.environ.get("OPENAI_JUDGE_BASE_URL")
+                or "https://api.openai.com/v1")
+        kwargs["base_url"] = base
         self._client = OpenAI(**kwargs)
         return self._client
 

@@ -86,3 +86,19 @@ Re-scored wrapped forms 3x on the headline GPT-4o-mini cells (`src/wrapped_noise
 ## Remaining gaps
 - Optional: frontier-tier rubric judges; ShieldGemma/WildGuard; a response set with wider
   baseline model separation for a cleaner H3.
+
+## Oct 11 2026 — ARR pre-submission revision
+- Noise floors now measured (3× original-form repeats) for every API judge except Llama Guard 4
+  (OpenRouter key expired again; LG-4 floor = wrapped-form 0.33%): GPT-4o-mini 0.5%,
+  StrongREJECT 0.5%, DeepSeek **4.8%** (exceeds all its flip rates → DeepSeek flips are noise),
+  Qwen 0.8%, Claude 1.0%, safeguard 1.5%. Keyword deterministic.
+- `Experiment/analysis/flip_vs_noise.json`: McNemar b/c cells for every (judge, wrapper), plus
+  a paired flip-vs-repeat-disagreement test; per-category / per-target-model breakdowns.
+- Paper: abstract cut to ~250 words; vocabulary simplified (harm-hiding/harm-inventing →
+  "make a harmful reply sound safe / make a refusal sound dangerous"; assertion-adding → claim-adding;
+  stratum → group; protective → stricter); judge panel described once; McNemar described as a
+  directional test; keyword judge reported as sanity check; appendices A–E added (wrapper texts,
+  judge prompts, directional counts, category/model breakdown, leaderboard bootstrap);
+  4 verified refs added (Raina+ EMNLP'24, Mangaokar+ PRP ACL'24, Ran+ JailbreakEval, Cai+ Rethinking).
+- Bug fix: `OpenAIRubricJudge` now pins https://api.openai.com/v1 (SDK was silently reading
+  the DashScope OPENAI_BASE_URL from .env).

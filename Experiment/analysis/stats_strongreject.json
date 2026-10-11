@@ -148,8 +148,8 @@
     }
   },
   "noise_floor": {
-    "measured": false,
-    "rate": 0.0,
-    "note": "judge deterministic or repeats=1; floor assumed 0."
+    "measured": true,
+    "rate": 0.005,
+    "n": 600
   }
 }

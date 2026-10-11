@@ -1,7 +1,7 @@
 """Generate the paper's flip-rate table (wrappers as rows, judges as columns).
 
 Reads Experiment/analysis/flip_rates.csv, writes a booktabs tabular grouped by
-attack direction, with a tone-only/assertion-adding stratum marker per wrapper and
+attack direction, with a tone-only/claim-adding marker per wrapper and
 a * on Holm-significant cells. Layout-agnostic: the paper wraps it in table or table*.
 
 Usage: python -m src.make_flip_table [out.tex]
@@ -14,10 +14,10 @@ JUDGES = [("rulebased", "Keyword"), ("gpt4o", "GPT-4o-m"), ("strongreject", "Str
           ("llamaguard_or", "LG-4"), ("safeguard_or", "SG-20b")]
 TONE = {"disclaimer_prefix", "ethical_reflection", "fake_cot", "moralizing_suffix", "lecture_suffix"}
 GROUPS = [
-    ("Harm-hiding wrappers (applied to genuinely harmful responses)",
+    ("Wrappers that make a harmful reply sound safe (applied to the 300 harmful replies)",
      ["disclaimer_prefix", "ethical_reflection", "fake_cot", "moralizing_suffix",
       "educational_framing", "refusal_then_comply"]),
-    ("Harm-inventing wrappers (applied to refusals)",
+    ("Wrappers that make a refusal sound dangerous (applied to the 300 refusals)",
      ["lecture_suffix", "harm_adjacent_preamble", "pseudo_comply_frame"]),
 ]
 PRETTY = {
@@ -38,7 +38,7 @@ def main(out="Publication/paper/flip_rates_wide.tex"):
         cell[(r["judge"], r["wrapper"])] = (v, star)
 
     lines = [r"\begin{tabular}{llrrrrrrrr}", r"\toprule",
-             r"Wrapper & Stratum & " + " & ".join(n for _, n in JUDGES) + r" \\",
+             r"Wrapper & Adds & " + " & ".join(n for _, n in JUDGES) + r" \\",
              r"\midrule"]
     for gi, (label, wrappers) in enumerate(GROUPS):
         if gi:
@@ -52,7 +52,7 @@ def main(out="Publication/paper/flip_rates_wide.tex"):
                 if star:
                     s = r"\textbf{" + s + r"}$^{*}$"
                 vals.append(s)
-            stratum = "tone" if w in TONE else "assert."
+            stratum = "tone" if w in TONE else "claim"
             lines.append(PRETTY[w] + " & " + stratum + " & " + " & ".join(vals) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}"]
     with open(out, "w") as f:
