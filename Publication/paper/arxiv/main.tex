@@ -362,13 +362,14 @@ ranking in point estimates, but on this compressed set those reorderings cannot 
 from sampling noise, and we do not claim them as wrapper effects. A reply set with wider
 baseline separation is required for affirmative reversal claims.
 
-\paragraph{Human validation.} Two annotators (authors of this paper) labeled a 145-item
+\paragraph{Human validation.} Two annotators labeled a 145-item
 stratified subset: 100 flip cases spanning seven judges and both directions (keyword 51,
 Llama Guard~4 24, GPT-4o-mini 15, DeepSeek 5, Qwen 4, Claude 2, StrongREJECT 2, counting
 replies flipped by several judges once per judge; 44 harmful-made-to-sound-safe, 56
 refusal-made-to-sound-dangerous; the eighth judge is immune and contributes no flips) plus 45
-content-invariance controls. Annotator~1 labeled all items; annotator~2 independently
-relabeled a 40-item overlap. Content invariance holds at \textbf{100\%} (145/145), and
+content-invariance controls. Annotator~1 (an author) labeled all items; annotator~2, a
+graduate student from the same lab who is not an author, was blind to the hypothesis and
+to which items were flips, and independently relabeled a 40-item overlap. Content invariance holds at \textbf{100\%} (145/145), and
 inter-annotator agreement is $\kappa=1.0$ on content invariance and $\kappa=0.949$ on the
 harm label. Using the human harm label as ground truth, \textbf{90\%} of flips (90/100) are
 confirmed judge errors. The 10 unconfirmed cases share a single cause: all are
@@ -424,19 +425,22 @@ concentrated in roleplay-style pseudo-refusals, and we exclude human-contradicte
 the confirmed-error figure. The ``style'' label is contestable for claim-adding wrappers, and
 one wrapper (\texttt{harm\_adjacent\_preamble}) names topics that can be absent from the
 original request; it accounts for the single inter-annotator disagreement and we treat its
-flips as the weakest evidence. The annotators are authors, not independent raters. We study
+flips as the weakest evidence. Only one of the two annotators is independent of the paper,
+and the independent annotator saw 40 of the 145 items. We study
 single-turn text replies; multi-turn and agent-trajectory judging are future work.
 
 \section{Ethics}
 We attack the \emph{evaluation} layer to make safety measurement more honest, not to
 jailbreak models. Replies come from existing public benchmarks; the shipped demo fixture uses
 non-operational placeholder text. Wrappers are stylistic and confer no new harmful capability
-to a \emph{model}; they do, however, constitute working evasion framings against a deployed
-moderation filter, so we are reporting the specific Llama Guard~4 evasion results to Meta and
-the GPT-4o-mini destabilization results to OpenAI alongside this submission. Because the
-wrappers are generic, human-readable sentences rather than optimized artifacts, equivalent
-strings are trivially rediscoverable; withholding them would impede defenders auditing their
-own pipelines more than it would impede attackers.
+to a \emph{model}. They do show that an open-weight moderation model and a general-purpose
+API used as a judge can be steered by framing, but this is a measurement weakness in a
+publicly documented evaluation tool, not an undisclosed vulnerability in a deployed service,
+and the wrappers are generic, human-readable sentences rather than optimized artifacts.
+Equivalent strings are trivially rediscoverable; withholding them would impede defenders
+auditing their own pipelines more than it would impede attackers. Human annotation was
+performed by an author and by an unpaid volunteer from our lab who consented to the task; no
+crowdworkers were involved.
 
 \section*{Reproducibility}
 Code, wrappers, reply-set builder, judge adapters, statistics, and per-verdict labels are
