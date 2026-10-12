@@ -440,11 +440,26 @@ and the wrappers are generic, human-readable sentences rather than optimized art
 Equivalent strings are trivially rediscoverable; withholding them would impede defenders
 auditing their own pipelines more than it would impede attackers. Human annotation was
 performed by an author and by an unpaid volunteer from our lab who consented to the task; no
-crowdworkers were involved.
+crowdworkers were involved. The replies are English model outputs from a public benchmark and
+contain no personal data; they do contain harmful instructions, which is the object of
+study, and we release only verdict labels keyed to the public artifact IDs rather than
+re-hosting the text.
+
+\paragraph{Artifacts and licenses.} JailbreakBench code and artifacts are released under the
+MIT license and are used for their stated purpose, evaluating jailbreak and defense
+behaviour. Llama Guard~4 is used under the Llama~4 Community License and gpt-oss-safeguard-20b
+under Apache~2.0, both as served through a hosted API; the remaining judges are commercial
+APIs used under their providers' terms. Our code, wrappers, and per-verdict labels will be
+released under the MIT license.
 
 \paragraph{Reproducibility.} Code, wrappers, reply-set builder, judge adapters, statistics,
 and per-verdict labels will be publicly released with the paper; an offline smoke test
 reproduces the full pipeline end-to-end without API access.
+
+\paragraph{AI assistance.} An LLM coding assistant was used to write and debug experiment
+code and to edit the prose for clarity. The research questions, wrapper design, experimental
+design, data analysis, and all claims were determined and verified by the authors, who take
+full responsibility for the content.
 
 \bibliography{custom}
 \bibliographystyle{acl_natbib}
