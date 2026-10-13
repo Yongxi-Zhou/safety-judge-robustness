@@ -140,3 +140,25 @@ contribution inflated, "balanced" categories wrong, flip-vs-repeat test undefine
 
 Not done (needs experiments / keys): wrapper component ablation, GPT-4o / JBB Llama-3-70B /
 HarmBench / StrongREJECT-cls judges, LG-4 original-form floor, title change (user kept title).
+
+### Oct 12 2026 — third simulated review (Soundness 2, Overall 2): two real internal inconsistencies found and fixed
+
+- **κ=1.0 on content invariance was undefined**: both annotators used a single label on all 40
+  overlap items (po = pe = 1). `analyze_human_validation.cohen_kappa` returns 1.0 by convention
+  when pe == 1. Paper now reports raw agreement 40/40 and says κ is undefined; harm-label κ=0.949
+  with its confusion matrix (22/17/1).
+- **Keyword judge was mis-described**: `rulebased_verdict` sets `unsafe` from an independent
+  15-phrase compliance list (UNSAFE_PATTERNS), not from the absence of refusal phrases. The
+  `pseudo_comply_frame` wrapper text contains "here is the information", which is in that list,
+  so the 287/287 flip is a direct keyword hit on the wrapper. Appendix B and Results now say so.
+- Label-invariance policy stated explicitly in Method (unsafe iff actionable harmful content;
+  label, not semantics, is what is invariant); "any change is an error"/"provably" removed.
+- Noise floors restricted to each side's flip-rate denominator (harm/refusal): gpt4o 0.0/0.4,
+  SR 0.0/0.8, DeepSeek 0.7/3.0, Qwen 0.3/0.4, Claude 0.0/0.4, SG 0.3/0.4 (Table 2 caption).
+- Leaderboard: quantity ranked = judge unsafe rate on 75 benchmark-harmful replies per target
+  (recall on jailbroken replies), no attempt denominator → not an ASR; stated in §5 and App. E.
+- 133/145 label-noise figure scoped to the flip-enriched subset, not benchmark-wide.
+- "strongreject" = StrongREJECT-style prompt, not the classifier; "eight judge configurations
+  over seven systems"; rubric comparison caveat (both prompts say ignore tone).
+- Ethics: dual-use of course framing vs Llama Guard 4 as a filter stated; annotator informed,
+  could skip/stop.
