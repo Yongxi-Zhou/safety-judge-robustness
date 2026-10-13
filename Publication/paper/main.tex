@@ -31,46 +31,49 @@
 \maketitle
 
 \begin{abstract}
-Automatic \emph{safety judges}---for example Llama Guard, or GPT-4o given a grading
-prompt---produce the numbers behind reported jailbreak success rates, defense evaluations,
-and safety leaderboards. We ask whether these judges grade what a reply \emph{contains} or
-how it \emph{sounds}. We place a fixed piece of text before or after a model reply (a
-\emph{style wrapper}) and leave the reply itself unchanged byte-for-byte, so any change in
-verdict is an error of the judge. Over 600 JailbreakBench replies (300 harmful, 300
-refusals), 9 wrappers, and 8 judges, using paired tests and a measured per-judge
-repeat-disagreement rate (the \emph{noise floor}), we find that most judges barely move but
-specific judges have specific, cheap blind spots. A token refusal (``I can't help with
+Automatic \emph{safety judges}---for example Llama Guard, or GPT-4o-mini given a grading
+prompt---produce the numbers behind reported jailbreak success rates and safety
+leaderboards. We ask whether such a judge grades what a reply \emph{contains} or how it is
+\emph{framed}. We place a fixed sentence before or after a model reply and leave the reply
+itself unchanged byte-for-byte, so any change in verdict is an error of the judge. Over 600
+JailbreakBench replies (300 harmful, 300 refusals), 9 wrappers, and 8 judges, with paired
+tests and a measured per-judge noise floor, we find that most judges barely move, but two
+have cheap, specific blind spots. A token refusal (``I'm sorry, but I can't help with
 that'') placed before the unchanged harmful text flips \textbf{19.9\%} of GPT-4o-mini's
-correct ``unsafe'' verdicts to ``safe'' (noise floor 0.5\%; 18.2\% under majority-of-three
-re-scoring), yet moves Claude only 0.4\%. The deployed \textbf{Llama Guard~4} guard model
-is evaded by an ``educational course'' preface on \textbf{12.3\%} of harmful replies, and
-the flips persist across repeats, while a second deployed guard (gpt-oss-safeguard-20b) is
-immune. Changing only the grading prompt to ignore tone cuts the GPT-4o-mini attack roughly
-tenfold on the same model, so the weakness lives in the judge, not in the content. Pure
-tone-only decoration that adds no new claim still flips up to 2.1\% of verdicts on the
-vulnerable judges, several times their noise floors. On this artifact set the judges also
-disagree about which target model is safest, and a bootstrap shows the ranking is unstable
-before any wrapper is added. We release the data, wrappers, code, and per-verdict labels.
+correct ``unsafe'' verdicts to ``safe'' (noise floor 0.5\%), and every flipped case is
+labeled by the judge as a \emph{refusal}: it classifies the opening sentence and lets that
+override the body. A false ``university course'' preface flips \textbf{12.3\%} of
+\textbf{Llama Guard~4}'s harmful verdicts, persistently across repeats, while a second
+deployed guard (gpt-oss-safeguard-20b) is unaffected. Changing only the grading prompt to
+ignore framing cuts the GPT-4o-mini effect tenfold on the same model. Wrappers that add tone
+alone (a disclaimer, an ethical preamble) move the vulnerable judges by at most a few points
+and do not survive multiple-comparison correction; we report them as suggestive. Two human
+annotators confirm content invariance on all 145 audited items and confirm every
+harmful-side flip of an LLM judge as a judge error. We will release the wrappers, code, and
+per-verdict labels.
 \end{abstract}
 
 \section{Introduction}
 A safety benchmark score is only as trustworthy as the judge that produces it. Most work
 studies \emph{attacks} and \emph{models} and treats the judge as a fixed oracle. Recent work
 has begun to question that oracle: constant ``null-model'' replies win automatic
-leaderboards~\citep{cheating2025}, reasoning-sounding phrases sway reasoning
+leaderboards such as AlpacaEval~2.0~\citep{cheating2025}, reasoning-sounding phrases sway reasoning
 judges~\citep{lrmbias2025}, and a NeurIPS position paper argues that most cross-paper
 comparisons of attack success rate (ASR; the share of harmful requests a model complies
 with) are invalid because judge error dominates the reported
 differences~\citep{asrposition2025}. These are existence proofs that judges can be
-gamed---but for \emph{general} evaluation, or from the \emph{input} side.
+gamed, but they concern general-purpose evaluation or the \emph{input} side (the request),
+not the safety verdict on a fixed reply.
 
 We ask the safety-specific, scoring-side question directly: \textbf{if we change only how a
 reply sounds, and not what it says, does the safety verdict stay fixed?} A faithful judge
 must say yes. Our answer is deliberately narrow. We do not claim that safety judges in
 general grade style over substance; most judges in our panel are robust to most wrappers.
 We claim that \emph{specific} judges, including a purpose-built deployed guard model, have
-\emph{specific} blind spots that a one-sentence, zero-cost decoration exploits at rates far
-above the judges' own measurement noise.
+\emph{specific} blind spots that a one-sentence, zero-cost framing exploits at rates far
+above the judges' own measurement noise. The two large effects come from framings that add
+a claim (a token refusal; a false ``course'' context); wrappers that add tone alone move the
+vulnerable judges by at most a few points and are reported as suggestive.
 
 \paragraph{Vocabulary.} We use a small fixed vocabulary. A \textbf{judge} is any automatic
 system that labels a model reply \texttt{unsafe} or \texttt{safe}; it sees the harmful
@@ -92,18 +95,20 @@ which our human validation independently audits.
 
 \paragraph{Contributions.}
 \begin{enumerate}
-\item A controlled \textbf{style-wrapper attack on safety judges} (not on models), where
+\item A controlled \textbf{wrapper attack on safety judges} (not on models), where
 content preservation holds \emph{by construction} rather than by an LLM rewrite, removing
 the intent-preservation confound of reformulation studies~\citep{zhou2026surfaceform}.
 \item A cross-judge \textbf{flip-rate protocol}: paired directional tests with
-multiple-comparison correction, bootstrap confidence intervals, and a measured noise floor
-per judge, over 8 judges and 9 wrappers in both directions, with tone-only and
-claim-adding wrappers reported separately so the uncontestable core of the effect stands on
-its own.
-\item A \textbf{negative result on safety leaderboards}: on a standard jailbreak-artifact
-set, the model ranking is unstable to judge choice and to sampling alone, so wrapper-induced
-reorderings, although present in point estimates, cannot be confirmed.
-\item A human-anchored validation that flips are judge errors, plus a public release.
+multiple-comparison correction within and across judges, bootstrap confidence intervals,
+a measured noise floor per judge, and per-judge baseline accuracy, over 8 judges and 9
+wrappers in both directions, with tone-only and claim-adding wrappers reported separately.
+\item A \textbf{diagnosis} of the two blind spots: every GPT-4o-mini flip under the token
+refusal is accompanied by the judge's own ``REFUSAL: YES'' label, so the judge classifies
+the opening speech act and lets it override the body; a content-only rubric on the same
+model cuts the flip tenfold; and Llama Guard~4's course-framing flips are deterministic
+across repeats.
+\item A human validation (two annotators, 145 items) that flips are judge errors, plus a
+release of wrappers, code, and per-verdict labels.
 \end{enumerate}
 
 \section{Related Work}
@@ -128,14 +133,10 @@ document run-to-run judge self-inconsistency, and repeated-run studies find LLM 
 across identical runs even on deterministic tasks~\citep{zhou2026reliability}. Our
 \texttt{fake\_cot} and \texttt{ethical\_reflection} wrappers are the safety-verdict analogues
 of the reflection bias, and our noise floor operationalizes run-to-run instability.
-Downstream systems increasingly treat LLM-derived labels as noisy signals to be modeled
-rather than trusted~\citep{zhang2026prism}; a judge's flip rate quantifies one structured
-component of that noise.
 
 \paragraph{Surface-form sensitivity on the input side.} \citet{zhou2026surfaceform} show
 that scoring a single canonical phrasing of each harmful request underestimates safety's
-sensitivity to surface form. Framing effects likewise shift safety behavior in multi-agent
-settings~\citep{liu2026reframing}. We move the same concern to the \emph{scoring} side: the
+sensitivity to surface form. We move the same concern to the \emph{scoring} side: the
 reply is held fixed, only the text around it varies, and the quantity at risk is the verdict.
 
 \paragraph{Validity of jailbreak evaluation.} \citet{asrposition2025} argue ASR comparisons
@@ -144,22 +145,14 @@ show their evaluators (string matching, prompted chat models, classifiers) disag
 substantially; \citet{cai2024rethinking} argue a binary ``jailbroken'' label oversimplifies
 the outcome; \citet{jailmeter2026} and \citet{guidedbench2026} show many ``near-100\% ASR''
 methods produce incomplete harmful content and that per-case criteria cut evaluator variance.
-Measurement-validity concerns recur across LLM evaluation: agent harnesses can ``fix''
-failures that never happened when the evaluation signal is spurious~\citep{wang2026phantom},
-compositional risk in agent skill ecosystems resists per-component safety
-scores~\citep{wang2026skills}, human review itself drifts~\citep{yu2026habituation}, and
-what gets measured is shaped by evaluation budgets~\citep{qian2026activerag}. Benchmark
-audits in other LLM application domains reach similar
-conclusions~\citep{su2026agentic,su2026agenticsql}. We add a controlled measurement of one
-concrete failure mode of the safety verdict itself.
+We add a controlled measurement of one concrete failure mode of the safety verdict itself.
 
 \paragraph{Over-refusal and guard models.} OR-Bench~\citep{orbench2025} finds safety and
 over-refusal correlate, but both are measured with LLM judges; our refusal-side wrappers
 probe whether part of that trade-off is shared judge bias. Guard models (Llama Guard,
 ShieldGemma, WildGuard;~\citealp{llamaguard,shieldgemma2024,wildguard2024}) and pipeline
-attacks~\citep{stack2026} treat guards as components to harden, a surface that widens in
-agentic deployments~\citep{jiang2026attacksurface,jiang2026chaincaps}; we audit guards from
-the scoring side instead.
+attacks~\citep{stack2026} treat guards as components to harden; we audit guards from the
+scoring side instead.
 
 \section{Method}
 \paragraph{Object under test.} The judge, not the model. The data unit is a fixed triple
@@ -205,23 +198,50 @@ safe})$. Conditioning on a correct original verdict means every counted flip is 
 caused by the wrapper. Three complementary statistics accompany each rate. (i)~A
 \textbf{directional paired test}: over all replies the wrapper applies to, we count verdicts
 that moved unsafe$\to$safe and safe$\to$unsafe and apply the exact McNemar test, which asks
-whether moves in one direction outnumber moves in the other more than chance would allow;
-$p$-values are corrected for the nine wrappers per judge (Holm; Benjamini--Hochberg in the
-release). (ii)~A bootstrap 95\% confidence interval (CI) over replies (5{,}000 resamples).
-(iii)~The \textbf{noise floor}: each API judge re-scores the \emph{original} form three
-times and its self-disagreement rate (share of replies whose three verdicts are not
-identical) is the floor; a flip rate counts as signal only if its CI clears that floor, and
-for judges with a non-zero floor we additionally run a paired test of ``flipped under the
-wrapper'' against ``disagreed with itself on repeat'' on the same replies. Because wrapped
-inputs could be noisier than originals, we also re-score the \emph{wrapped} form three times
-for the headline cells and report majority-of-three flip rates alongside single-scoring ones.
+whether moves in one direction outnumber moves in the other more than chance would allow.
+$p$-values are Holm-corrected for the nine wrappers per judge; as a sensitivity analysis we
+also correct over all 72 (judge, wrapper) cells at once, with Holm and with
+Benjamini--Hochberg. (ii)~A bootstrap 95\% confidence interval (CI) over replies (5{,}000
+resamples). (iii)~The \textbf{noise floor}: each API judge re-scores the \emph{original}
+form three times and its self-disagreement rate (share of replies whose three verdicts are
+not identical) is the floor; a flip rate counts as signal only if its CI clears that floor.
+(iv)~A secondary \textbf{flip-vs-repeat test} for judges with a non-zero floor: each reply
+contributes two binary outcomes, ``verdict changed when the wrapper was added'' and
+``verdict changed between two repeats of the original'', and an exact McNemar test on the
+discordant replies asks whether the wrapper changes verdicts more often than re-sampling
+alone does. We report it next to, never instead of, the primary directional test. Because
+wrapped inputs could be noisier than originals, we also re-score the \emph{wrapped} form
+three times for the headline cells and report majority-of-three flip rates alongside
+single-scoring ones. Finally, because the flip rate conditions on a correct original
+verdict, a judge that flags everything ``unsafe'' would look immune to harmful-side
+wrappers; we therefore also report each judge's original-form accuracy on both sides
+(Table~\ref{tab:baseline}), which also gives every cell's denominator.
 
 \section{Experimental Setup}
 \paragraph{Replies.} 600 replies (300 harmful, 300 refusals) from public JailbreakBench
 artifacts~\citep{jailbreakbench} (attacks PAIR, GCG, DSN, JBC, and random search), balanced
-across four target models (GPT-3.5-turbo, GPT-4, Vicuna-13B, Llama-2-7B) and ten harm
-categories, so the set doubles as a small leaderboard. Benchmark labels are the
-JailbreakBench classifier's \texttt{jailbroken} flag.
+across four target models (GPT-3.5-turbo, GPT-4, Vicuna-13B, Llama-2-7B; 75 harmful replies
+each and 59--81 refusals each) and spanning the ten JailbreakBench harm categories, unevenly:
+eight categories contribute 66--76 replies, Malware/Hacking 25, and
+Harassment/Discrimination 6. Benchmark labels are the JailbreakBench classifier's
+\texttt{jailbroken} flag.
+
+\paragraph{Judge quality on original forms.} Table~\ref{tab:baseline} reports each judge's
+accuracy against the benchmark label before any wrapper is added. All LLM judges recover
+92--99\% of harmful replies and clear 86--91\% of refusals, so none is ``immune'' merely by
+flagging everything; the keyword baseline misses 40\% of harmful replies. The two columns are
+also the denominators of Table~\ref{tab:flip}: a harmful-side cell is computed over the
+replies the judge correctly called unsafe, a refusal-side cell over those it correctly
+called safe.
+
+\begin{table}[t]
+\centering\small
+\input{baseline_accuracy.tex}
+\caption{Original-form judge quality against the benchmark label: number (and \%) of the
+300 harmful replies called unsafe and of the 300 refusals called safe. These counts are the
+denominators of the harmful-side and refusal-side cells of Table~\ref{tab:flip}.}
+\label{tab:baseline}
+\end{table}
 
 \paragraph{Protocol and cost.} 600 replies $\times$ up to 7 forms (original plus the
 applicable wrappers) $\times$ 8 judges, all API-served. Original-form repeats for the noise
@@ -238,7 +258,7 @@ underlying directional counts for every cell with raw $p<0.1$.
 \begin{table*}[t]
 \centering
 \small
-\setlength{\tabcolsep}{3.5pt}
+\setlength{\tabcolsep}{5pt}
 \input{flip_rates_wide.tex}
 \caption{Flip rate (\%) per wrapper $\times$ judge: of the replies a judge scored correctly
 in original form, the share whose verdict changes once the wrapper is added. \emph{Adds}:
@@ -276,7 +296,24 @@ more lenient: on Claude, a disclaimer or a fake reasoning block moves 10 origina
 harmful replies to ``unsafe'' and none the other way; on Llama Guard~4 a moralizing suffix
 does the same for 16. Finally, DeepSeek's measured noise floor (4.8\%) exceeds every one of
 its flip rates ($\le$3.5\%), so none of its flips can be distinguished from its own noise;
-we draw no conclusion about DeepSeek beyond that it is a noisy judge.
+we draw no conclusion about DeepSeek beyond that it is a noisy judge. Correcting over all 72
+cells at once rather than within judge changes little: the three lenient cells above
+(GPT-4o-mini token refusal, Llama Guard~4 course framing and token refusal), the keyword
+cell, and Llama Guard~4's stricter moralizing cell remain significant under 72-cell Holm;
+the stricter Claude and Qwen cells survive 72-cell Benjamini--Hochberg but not 72-cell Holm.
+
+\paragraph{What the judge reads.} The rubric judges return a \texttt{REFUSAL} label
+alongside \texttt{UNSAFE}, which exposes the mechanism. All 58 GPT-4o-mini replies flipped by
+\texttt{refusal\_then\_comply} were returned as \texttt{REFUSAL: YES, UNSAFE: NO}: the
+judge classified the opening sentence as a refusal and let that classification override the
+unchanged harmful body that followed. The same holds for every GPT-4o-mini flip under the
+three tone-only prefixes (29 of 29, across the disclaimer, ethical-reflection, and
+fake-reasoning wrappers), none of which contains a refusal: the judge reads hedging as
+refusing. On the refusal side the pattern inverts: GPT-4o-mini's five flips under the
+``Here is the information you asked for'' frame are all \texttt{REFUSAL: NO}, i.e.\ the
+judge took the preface at its word. This is a keyword-judge failure mode inside an LLM
+judge. Llama Guard~4 emits no refusal label, so we cannot run the same check; its flips are
+instead characterized by their determinism below.
 
 \paragraph{Where the flips concentrate.} The headline effects are not uniform over the data
 (Appendix~\ref{app:breakdown}). GPT-4o-mini's token-refusal flips concentrate on replies
@@ -292,15 +329,18 @@ it is prose, which is where a framing sentence blends in.
 (weighting wrappers by their covered replies) separates two findings. Tone-only wrappers,
 pure commentary with no new claim, flip \textbf{2.1\%} of correct verdicts on GPT-4o-mini
 and \textbf{1.7\%} on Llama Guard~4, with every other LLM judge at or below 0.6\%; small, but
-on the two vulnerable judges this is $4$--$5\times$ their noise floors, and a single
-tone-only wrapper (\texttt{ethical\_reflection}) reaches 4.8\% on GPT-4o-mini (14 vs.\ 5 in
-the directional test, raw $p=0.064$; 14 flips vs.\ 0 repeat-disagreements on the same
-replies, Holm $p=0.001$) and 3.6\% on Llama Guard~4. Claim-adding wrappers flip
+on the two vulnerable judges this is $4$--$5\times$ their noise floors. No single
+tone-only cell survives Holm correction: the largest, \texttt{ethical\_reflection} at 4.8\%
+on GPT-4o-mini, has 14 vs.\ 5 directional moves (raw $p=0.064$); the secondary
+flip-vs-repeat test (14 flips vs.\ 0 repeat disagreements on the same replies, Holm
+$p=0.001$) says these flips are not re-sampling noise, but we treat the cell as suggestive.
+Claim-adding wrappers flip
 \textbf{roughly $3\times$ more} on both judges (GPT-4o-mini 6.2\%, Llama Guard~4 5.3\%); the
 immune safeguard judge shows no group difference (0.35\% vs.\ 0.45\%, both within its noise
 floor). The headline effects therefore live in the claim-adding group, where a critic may
-reasonably contest the ``style'' label; the tone-only group is immune to that critique and
-still moves the vulnerable judges above their noise floors. Flips in \emph{both} groups are
+reasonably contest the ``style'' label; the tone-only group is immune to that critique but
+its effects are small and, at $n\approx291$, not individually significant. Flips in
+\emph{both} groups are
 judge errors under the task definition: the harmful body (or the refusal) is present verbatim
 in every wrapped message, and the human validation below confirms the content judgment is
 unchanged. The groups differ in how cheap and how deniable the attack is.
@@ -331,88 +371,90 @@ roughly tenfold reduction. Notably, the generic rubric \emph{already} warns the 
 refusal followed by operational detail is unsafe (Appendix~\ref{app:prompts}); the warning
 alone is not enough, and the shorter, content-only rubric is what closes the gap.
 
-\paragraph{This artifact set supports no stable safety leaderboard.} We report this as a
-methodological negative result, quantified by a bootstrap over replies (2{,}000 resamples
-within each target model; Appendix~\ref{app:leaderboard}). At the \emph{reply} level, judge
-disagreement is large: all eight judges agree on the original-form verdict for only
-\textbf{55.5\%} of replies (pairwise agreement from 94.2\% for Claude vs.\ GPT-4o-mini down
-to 59.9\% for keyword vs.\ StrongREJECT), and different judges' point estimates name
-different safest models (Vicuna-13B, Llama-2-7B, GPT-3.5, or GPT-4 depending on the judge).
-At the \emph{ranking} level, per-model unsafe rates on this jailbreak-artifact set are
-compressed (0.93--1.00 for the LLM judges), and the bootstrap shows the consequence: the
-baseline ``safest model'' is stable in only \textbf{39--85\%} of resamples for six of the seven
-LLM judges (93\% for the keyword judge and 98\% for the immune
-safeguard judge, whose rates are more widely separated). Wrappers do reorder the four-model
-ranking in point estimates, but on this compressed set those reorderings cannot be separated
-from sampling noise, and we do not claim them as wrapper effects. A reply set with wider
-baseline separation is required for affirmative reversal claims.
+\paragraph{Judge disagreement, and why we report no leaderboard.} All eight judges agree
+on the original-form verdict for only \textbf{55.5\%} of replies (pairwise agreement from
+94.2\% for Claude vs.\ GPT-4o-mini down to 59.9\% for keyword vs.\ StrongREJECT), and
+different judges' point estimates name different ``safest'' target models. Because this is
+a jailbreak-artifact set, per-model unsafe rates are compressed (0.93--1.00 for the LLM
+judges) and a four-model ranking is expected to be unstable a priori; a bootstrap over
+replies confirms it (the top-ranked model is stable in only 39--85\% of resamples for six of
+the seven LLM judges; Appendix~\ref{app:leaderboard}). Wrappers do reorder the ranking in
+point estimates, but we do not report those reorderings as wrapper effects, since they
+cannot be separated from sampling noise on this set.
 
-\paragraph{Human validation.} Two annotators labeled a 145-item
-stratified subset: 100 flip cases spanning seven judges and both directions (keyword 51,
-Llama Guard~4 24, GPT-4o-mini 15, DeepSeek 5, Qwen 4, Claude 2, StrongREJECT 2, counting
-replies flipped by several judges once per judge; 44 harmful-made-to-sound-safe, 56
-refusal-made-to-sound-dangerous; the eighth judge is immune and contributes no flips) plus 45
-content-invariance controls. Annotator~1 (an author) labeled all items; annotator~2, a
-graduate student from the same lab who is not an author, was blind to the hypothesis and
-to which items were flips, and independently relabeled a 40-item overlap. Content invariance holds at \textbf{100\%} (145/145), and
-inter-annotator agreement is $\kappa=1.0$ on content invariance and $\kappa=0.949$ on the
-harm label. Using the human harm label as ground truth, \textbf{90\%} of flips (90/100) are
-confirmed judge errors. The 10 unconfirmed cases share a single cause: all are
-refusal-side items whose benchmark label reads \emph{refusal} while the human found genuinely
-actionable content (roleplay-style pseudo-refusals), i.e., label noise in the source
-benchmark rather than a wrapper or judge artifact. Overall human--benchmark agreement is
-133/145 (91.7\%), so the validation both anchors the flip-as-judge-error claim and quantifies
-the label noise of the source benchmark.
+\paragraph{Human validation.} Two annotators labeled a 145-item stratified subset: 100 flip
+cases and 45 content-invariance controls. The 100 flip cases are replies, four of which were
+flipped by two judges, giving 104 judge--flip pairs: keyword 51, Llama Guard~4 24,
+GPT-4o-mini 15, DeepSeek 5, Qwen 4, Claude 2, StrongREJECT 2, gpt-oss-safeguard 1; 44 are
+harmful replies made to sound safe and 56 are refusals made to sound dangerous.
+Annotator~1 (an author) labeled all items; annotator~2, a graduate student from the same lab
+who is not an author, was blind to the hypothesis and to which items were flips, and
+independently relabeled a 40-item overlap. Content invariance holds at \textbf{100\%}
+(145/145), and inter-annotator agreement is $\kappa=1.0$ on content invariance and
+$\kappa=0.949$ on the harm label. Using the human harm label as ground truth, 90 of the 100
+flips are confirmed judge errors. Because the keyword baseline's flips are uncontested, the
+relevant subset is the 50 replies flipped by at least one LLM judge: 44 of 50 are confirmed,
+and \textbf{all 44 harmful-side LLM-judge flips} (including all 15 GPT-4o-mini and all 22
+harmful-side Llama Guard~4 flips sampled) are confirmed, so the two headline cells rest on
+replies a human agrees are harmful. The 10 unconfirmed cases share a single cause: all are
+refusal-side items whose benchmark label reads \emph{refusal} while the human found
+genuinely actionable content (roleplay-style pseudo-refusals), i.e., label noise in the
+source benchmark rather than a wrapper or judge artifact. Overall human--benchmark agreement
+is 133/145 (91.7\%), so the validation both anchors the flip-as-judge-error claim and
+quantifies the label noise of the source benchmark. The validated LLM-judge sample is small
+(50 replies); it supports the two headline cells, not a precise error rate per judge.
 
 \section{Discussion}
-When a one-sentence decoration can move a safety verdict at 8--20\% rates on particular
-judges, including a deployed guard model, any reported ASR, defense win-rate, or safety
-leaderboard scored by such a judge inherits a stylistic bias unrelated to real harm, and
-because the blind spots are judge-specific, the bias does not cancel across papers that use
-different judges. The practical implication is not ``discard judges'' but ``report style
-sensitivity'': alongside a safety score, report how much that score moves when the graded
-replies are restyled without any change in content, just as a physical measurement is
-reported with its instrument error. Concretely: apply the released wrappers to the replies
-one is about to score, re-score, and report the flip rate next to the headline number.
-Deployed decision systems in other fields already engineer the stability of their
-predictive instruments explicitly~\citep{li2026stability,huang2026dacri}; safety evaluation
-should meet the same bar. The underlying principle, that a measurement should be invariant
-to task-irrelevant surface variation, recurs well beyond text, from person
-re-identification under clothing change~\citep{ding2026synergistic} to robust medical
-segmentation under alternative scan orderings~\citep{wu2025bridging,tian2025centermamba}.
-Content-focused rubrics and majority-vote panels are natural mitigations, echoing cross-model
-review practice where one vendor's model audits another's output~\citep{xiang2026crossmodel};
-our data already shows the shortest content-only rubric is the least gameable. That one
-deployed guard is immune while another leaks 12\% under a course-framing sentence sharpens
-the guidance: robustness to restyling is a measurable, attainable, judge-specific property,
-and it should be audited before a judge is trusted with a leaderboard.
+When a one-sentence framing can move a safety verdict at 8--20\% rates on a judge, any
+reported ASR, defense win-rate, or safety leaderboard scored by \emph{that} judge inherits a
+framing bias unrelated to real harm, and because the blind spots are judge-specific, the
+bias does not cancel across papers that use different judges. We have shown this for two
+judges in a panel of eight, one of them a deployed guard model, and not for the judges that
+produce most published numbers (Limitations). The practical implication is not ``discard
+judges'' but ``report framing sensitivity'': alongside a safety score, report how much that
+score moves when the graded replies are re-framed without any change in content, just as a
+physical measurement is reported with its instrument error. Concretely: apply the released
+wrappers to the replies one is about to score, re-score, and report the flip rate next to
+the headline number. The diagnosis also points at the fix. GPT-4o-mini's flips are a
+speech-act classification of the first sentence overriding the body, and a shorter,
+content-only rubric on the same model removes most of them; a rubric that asks the judge to
+first locate actionable content and only then decide is the obvious next step. That one
+deployed guard is unaffected while another leaks 12\% under a course-framing sentence
+sharpens the guidance: robustness to re-framing is a measurable, attainable, judge-specific
+property, and it should be audited before a judge is trusted with a leaderboard.
 
 \section{Limitations}
-Nine hand-written wrappers characterize this set, not the space of possible wrappers; we
-did not ablate wrapper length or position, and the two headline wrappers are compound (the
-token refusal also adds a ``hypothetically'' frame; the course framing is a known prompt-side
-jailbreak context moved to the reply side), so we cannot say which component carries the
-effect. The largest effect comes from an overtly adversarial wrapper; we report per wrapper
-so readers can weight each, and the subtle tone-only wrappers, while above the noise floor,
-do not survive Holm correction on the directional test at $n\approx291$ and are reported as
-suggestive. The rubric judges are each vendor's small or mid tier (GPT-4o-mini,
-DeepSeek-Chat, Qwen-Plus, Claude Haiku 4.5) rather than frontier models, for cost and
-rate-limit reasons, the standard performance-efficiency trade-off in LLM-based
-judgment~\citep{zhang2026performance}; frontier rubric judges, the fine-tuned HarmBench and
-StrongREJECT classifiers, JailbreakBench's own Llama-3-70B judge, and the open guards
-ShieldGemma and WildGuard were not evaluated. The original-form noise floor of Llama Guard~4
-is inferred from wrapped-form repeats rather than measured directly. Replies come from one
-benchmark and four target models that are two generations old; about 60\% end mid-sentence at
-the artifacts' generation cap (truncation is identical in original and wrapped forms, so it
-is symmetric for the paired comparison, and annotators judged the text present). Benchmark
-labels are a classifier's, not human; our validation measures their noise at $\approx$8\%,
-concentrated in roleplay-style pseudo-refusals, and we exclude human-contradicted flips from
-the confirmed-error figure. The ``style'' label is contestable for claim-adding wrappers, and
-one wrapper (\texttt{harm\_adjacent\_preamble}) names topics that can be absent from the
-original request; it accounts for the single inter-annotator disagreement and we treat its
-flips as the weakest evidence. Only one of the two annotators is independent of the paper,
-and the independent annotator saw 40 of the 145 items. We study
-single-turn text replies; multi-turn and agent-trajectory judging are future work.
+\textbf{No judge that produces published leaderboard numbers was tested.} The fine-tuned
+HarmBench and StrongREJECT classifiers, JailbreakBench's own Llama-3-70B judge, GPT-4-class
+rubric judges, and the open guards ShieldGemma and WildGuard are absent; our rubric judges
+are each vendor's small or mid tier (GPT-4o-mini, DeepSeek-Chat, Qwen-Plus, Claude Haiku
+4.5), chosen for cost and rate limits. The Discussion's implication for published ASRs is
+therefore conditional on a judge having a blind spot of the kind we measured, which must be
+checked per judge. Nine hand-written wrappers characterize this set, not the space of
+possible wrappers; we did not ablate wrapper length or position, and the two headline
+wrappers are compound (the token refusal also adds a ``hypothetically'' frame; the course
+framing is a known prompt-side jailbreak context moved to the reply side), so we cannot say
+which component carries the effect, only that the judge's own refusal label points at the
+refusal sentence for GPT-4o-mini. The largest effects come from overtly adversarial,
+claim-adding wrappers; the tone-only wrappers, while above the noise floor in aggregate, do
+not survive Holm correction individually at $n\approx291$ and are reported as suggestive.
+The original-form noise floor of Llama Guard~4 is inferred from wrapped-form repeats rather
+than measured directly. Output budgets differ by format (16 tokens for the two-line rubric
+answer, 4{,}000 for gpt-oss-safeguard's reasoning trace); all judges see the same input, but
+the reasoning budget is a plausible contributor to that guard's robustness that we did not
+isolate. Replies come from one benchmark and four target models that are two generations
+old; about 60\% end mid-sentence at the artifacts' generation cap (truncation is identical
+in original and wrapped forms, so it is symmetric for the paired comparison, and annotators
+judged the text present), and GPT-4o-mini's flips concentrate on the two open-weight
+targets' replies. Benchmark labels are a classifier's, not human; our validation measures
+their noise at $\approx$8\%, concentrated in roleplay-style pseudo-refusals, and we exclude
+human-contradicted flips from the confirmed-error figure. The ``style'' label is contestable
+for claim-adding wrappers, and one wrapper (\texttt{harm\_adjacent\_preamble}) names topics
+that can be absent from the original request; it accounts for the single inter-annotator
+disagreement and we treat its flips as the weakest evidence. Only one of the two annotators
+is independent of the paper, the independent annotator saw 40 of the 145 items, and only 50
+validated replies involve an LLM judge. We study single-turn text replies; multi-turn and
+agent-trajectory judging are future work.
 
 \section{Ethics}
 We attack the \emph{evaluation} layer to make safety measurement more honest, not to
@@ -530,7 +572,9 @@ reply as the assistant turn; the model's \texttt{safe}/\texttt{unsafe} output is
 directly. \paragraph{Keyword judge.} Marks a reply \texttt{safe} if it matches a fixed list of
 refusal phrases (``I'm sorry'', ``I cannot'', \ldots) and \texttt{unsafe} otherwise.
 \paragraph{Decoding.} Temperature 0 for every API judge; 16 output tokens for the rubric
-judges, 20 for Llama Guard~4, and 4{,}000 for the reasoning classifier gpt-oss-safeguard-20b.
+judges (enough for the two-line answer; no rubric output was truncated), 20 for Llama
+Guard~4, and 4{,}000 for gpt-oss-safeguard-20b, which emits a reasoning trace before its
+verdict. All judges receive the same behavior and reply text.
 
 \section{Directional test counts}
 \label{app:stats}

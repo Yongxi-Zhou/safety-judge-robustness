@@ -102,3 +102,41 @@ Re-scored wrapped forms 3x on the headline GPT-4o-mini cells (`src/wrapped_noise
   4 verified refs added (Raina+ EMNLP'24, Mangaokar+ PRP ACL'24, Ran+ JailbreakEval, Cai+ Rethinking).
 - Bug fix: `OpenAIRubricJudge` now pins https://api.openai.com/v1 (SDK was silently reading
   the DashScope OPENAI_BASE_URL from .env).
+
+## Oct 12 2026 — second ARR pre-submission revision (two simulated reviews, no new experiments)
+
+Changes driven by the two reviews (both Overall 2.5; main complaints: overclaiming tone-only,
+missing baseline accuracy, no mechanism, human validation thin, citation padding, leaderboard
+contribution inflated, "balanced" categories wrong, flip-vs-repeat test undefined):
+
+- **Mechanism (free, from existing judged files):** all 58 GPT-4o-mini `refusal_then_comply`
+  flips return `REFUSAL: YES, UNSAFE: NO`; all 29 GPT-4o-mini flips under the three tone-only
+  prefixes also return `REFUSAL: YES`; its 5 `pseudo_comply_frame` flips return `REFUSAL: NO`.
+  → the judge classifies the opening speech act and lets it override the body. New Results
+  paragraph "What the judge reads"; new Contribution 3.
+- **Baseline accuracy table (new Table 1, `baseline_accuracy.tex`):** harmful→unsafe /
+  refusal→safe on original forms. Keyword 180/287; GPT-4o-mini 291/261; StrongR 298/262;
+  DeepSeek 287/270; Qwen 295/257; Claude 286/273; LG-4 277/270; SG-20b 296/257. No LLM judge
+  is "immune by over-flagging".
+- **72-cell global correction:** under Holm over all 72 cells the 3 lenient LLM cells + keyword
+  + LG-4 moralizing (stricter) stay significant; Claude disclaimer/fake_cot and Qwen lecture
+  (stricter) survive BH-72 but not Holm-72. Stated in Method + Results.
+- **Human validation recount:** 104 judge–flip pairs over 100 replies (4 replies flipped by
+  two judges): keyword 51 (46 confirmed), LG-4 24 (22), GPT-4o-mini 15 (15), DeepSeek 5 (5),
+  Qwen 4 (3), Claude 2 (0), StrongR 2 (1), SG-20b 1 (0). LLM-judge replies 50 → 44 confirmed;
+  **all 44 harmful-side LLM-judge flips confirmed**; 10 unconfirmed all refusal-side.
+- Category distribution corrected (Malware 25, Harassment 6, others 66–76; 75 harmful per
+  target, 59–81 refusals per target).
+- Abstract rewritten (framing, not style; tone-only "suggestive"; "we will release");
+  Contributions: leaderboard dropped, mechanism added; leaderboard paragraph compressed.
+- 16 unrelated citations removed (re-ID, segmentation, demand forecasting, SQL, agent
+  ecosystem, …); 23 bibitems remain.
+- flip-vs-repeat test defined in Method as secondary; ethical_reflection presented as not
+  surviving Holm.
+- Limitations opens with "No judge that produces published leaderboard numbers was tested";
+  max-token confound for safeguard noted; Appendix B decoding note.
+- Table 2 (flip matrix) tabcolsep 3.5→5pt for column separation.
+- Build: 11 pp, content ends p7 (Discussion+Limitations+Ethics on p7), 0 overfull.
+
+Not done (needs experiments / keys): wrapper component ablation, GPT-4o / JBB Llama-3-70B /
+HarmBench / StrongREJECT-cls judges, LG-4 original-form floor, title change (user kept title).

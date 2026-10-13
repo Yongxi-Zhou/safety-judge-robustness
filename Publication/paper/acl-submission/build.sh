@@ -3,7 +3,7 @@
 # anonymous switches flipped, then compiles. Output: main-anon.pdf
 set -e
 cd "$(dirname "$0")"
-cp ../arxiv/acl.sty ../arxiv/acl_natbib.bst ../arxiv/custom.bib ../arxiv/flip_rates_wide.tex ../arxiv/mcnemar_cells.tex ../arxiv/breakdown.tex ../arxiv/leaderboard.tex .
+cp ../arxiv/acl.sty ../arxiv/acl_natbib.bst ../arxiv/custom.bib ../arxiv/flip_rates_wide.tex ../arxiv/mcnemar_cells.tex ../arxiv/breakdown.tex ../arxiv/leaderboard.tex ../arxiv/baseline_accuracy.tex .
 sed -e 's/^\\anonymoussubmissionfalse$/\\anonymoussubmissiontrue/' \
     -e 's/^\\preprintversiontrue$/\\preprintversionfalse/' ../arxiv/main.tex > main.tex
 for i in 1 2; do pdflatex -interaction=nonstopmode main.tex >/dev/null; bibtex main >/dev/null || true; done
