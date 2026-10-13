@@ -1,7 +1,7 @@
 # Research Brief
 
 ## Project
-Style Over Substance: Content-Invariant Wrappers Flip LLM Safety-Judge Verdicts
+Sounding Safe Is Enough: Content-Invariant Framings Flip Specific LLM Safety Judges
 
 ## Goal
 An empirical short paper showing that the automatic **judges** used to score LLM safety —

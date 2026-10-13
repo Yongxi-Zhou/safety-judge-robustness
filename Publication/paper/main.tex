@@ -1,4 +1,4 @@
-% Style Over Substance: Content-Invariant Wrappers Flip LLM Safety-Judge Verdicts
+% Sounding Safe Is Enough: Content-Invariant Framings Flip Specific LLM Safety Judges
 %
 % Self-contained draft: compiles with a standard LaTeX install (`bash build.sh`).
 % To target ACL/ARR, replace the \documentclass + preamble block with `\usepackage{acl}`
@@ -19,7 +19,7 @@
 \usepackage{natbib}
 \setcitestyle{numbers,square}
 
-\title{Style Over Substance: Content-Invariant Wrappers Flip \\ LLM Safety-Judge Verdicts}
+\title{Sounding Safe Is Enough: Content-Invariant Framings \\ Flip Specific LLM Safety Judges}
 \author{Yongxi Zhou$^{1,\ast}$ \quad Wenbo Ye$^{3}$ \quad Yuanzhe Liu$^{2}$ \quad
   Zihan Dong$^{2}$ \quad Junwei Yao$^{1}$ \\
   \small $^{1}$Northeastern University \quad $^{2}$Georgia Institute of Technology \quad
@@ -114,9 +114,8 @@ release of wrappers, code, and per-verdict labels.
 \section{Related Work}
 \paragraph{Biased and attackable LLM judges.} Systematic biases of LLM evaluators are
 established for \emph{general} evaluation: position, verbosity, and self-enhancement
-biases~\citep{mtbench2023,faireval2023}, and \citet{wuaji2023style}, from whom we borrow our
-title phrase, show LLM evaluators rate fluent but factually wrong answers above correct
-ones. On the attack side, \citet{raina2024judgerobust} learn short universal phrases that,
+biases~\citep{mtbench2023,faireval2023}, and \citet{wuaji2023style} show LLM evaluators
+rate fluent but factually wrong answers above correct ones (``style over substance''). On the attack side, \citet{raina2024judgerobust} learn short universal phrases that,
 appended to a candidate text, inflate a judge's score, and
 JudgeDeceiver~\citep{judgedeceiver2024} injects optimized token sequences to flip pairwise
 preferences. Closest to our setting, PRP~\citep{mangaokar2024prp} constructs a universal
