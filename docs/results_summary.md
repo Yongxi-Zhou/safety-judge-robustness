@@ -162,3 +162,15 @@ HarmBench / StrongREJECT-cls judges, LG-4 original-form floor, title change (use
   over seven systems"; rubric comparison caveat (both prompts say ignore tone).
 - Ethics: dual-use of course framing vs Llama Guard 4 as a filter stated; annotator informed,
   could skip/stop.
+
+## Oct 18 2026 — AAAI-27 workshop version (`Publication/paper/aaai-ws/`)
+
+Condensed to AAAI-27 format (official AuthorKit27, aaai2027.sty): main text ~4.7 pp +
+references + Appendix A (wrapper texts) + Appendix B (prompts); 7 pp total, 0 overfull.
+`build.sh` produces `main-anon.pdf` ([submission] option, double-blind workshops) and
+`main-authors.pdf` (author block, single-blind workshops). Dropped vs. ARR version:
+Appendices C–E tables (directional counts, category/target breakdown, leaderboard bootstrap).
+Target workshops (all Nov 20 deadline, Dec 2 notification, non-archival): SPF-LLM (6 pp +
+refs, single-blind), Deployable AI (7 pp, double-blind, explicitly accepts papers under
+review), LLM Agents Under Threat (7 pp), AICS (5–9 pp incl. refs, notif. Dec 11).
+TeX note: BasicTeX needed `tlmgr --usermode install newtx fontaxes xstring kastrup`.
