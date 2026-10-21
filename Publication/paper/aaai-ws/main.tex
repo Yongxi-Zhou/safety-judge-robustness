@@ -52,7 +52,7 @@ Guard~4's harmful verdicts, persistently across repeats, while a second deployed
 effect tenfold on the same model. Wrappers that add tone alone move the vulnerable judges by
 at most a few points and do not survive multiple-comparison correction. Two human annotators
 confirm content invariance on all 145 audited items and confirm every harmful-side flip of
-an LLM judge as a judge error. We release the wrappers, code, and per-verdict labels.
+an LLM judge as a judge error. We will release the wrappers, code, and per-verdict labels.
 \end{abstract}
 
 \section{Introduction}
@@ -411,8 +411,6 @@ analysis, and claims were determined and verified by the authors. Code, wrappers
 adapters, statistics, and per-verdict labels will be released under the MIT license; an
 offline smoke test reproduces the pipeline without API access.
 
-\bibliography{custom}
-
 \appendix
 \section{Appendix A: Wrapper Texts}
 Each wrapper is a fixed string; \emph{prefix} wrappers are placed before the reply and
@@ -500,5 +498,8 @@ rule by construction.
 \para{Decoding.} Temperature 0 for every API judge; 16 output tokens for the rubric judges
 (no output was truncated), 20 for Llama Guard~4, and 4{,}000 for gpt-oss-safeguard-20b,
 which emits a reasoning trace before its verdict.
+
+\normalsize
+\bibliography{custom}
 
 \end{document}
