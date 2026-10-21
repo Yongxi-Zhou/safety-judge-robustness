@@ -4,8 +4,8 @@
 set -e
 cd "$(dirname "$0")"
 cp ../custom.bib ../flip_rates_wide.tex ../baseline_accuracy.tex .
-build () {  # $1 = output name, $2 = sty option
-  sed -e "s/^\\\\usepackage\[submission\]{aaai2027}/\\\\usepackage$2{aaai2027}/" main.tex > _b.tex
+build () {  # $1 = output name, $2 = sty option, $3 = source (default main.tex)
+  sed -e "s/^\\\\usepackage\[submission\]{aaai2027}/\\\\usepackage$2{aaai2027}/" "${3:-main.tex}" > _b.tex
   for i in 1 2; do pdflatex -interaction=nonstopmode _b.tex >/dev/null || true; bibtex _b >/dev/null || true; done
   pdflatex -interaction=nonstopmode _b.tex >/dev/null || true
   pdflatex -interaction=nonstopmode _b.tex | grep "Output written"
@@ -13,5 +13,6 @@ build () {  # $1 = output name, $2 = sty option
 }
 build main-anon.pdf "[submission]"
 build main-authors.pdf ""
+build main-eval-anon.pdf "[submission]" main-eval.tex   # EvalAIScientists variant: + AI-scientist paragraph
 rm -f _b.aux _b.bbl _b.blg _b.out _b.pdf _b.log _b.tex
-echo "Built main-anon.pdf and main-authors.pdf"
+echo "Built main-anon.pdf, main-authors.pdf, main-eval-anon.pdf"
